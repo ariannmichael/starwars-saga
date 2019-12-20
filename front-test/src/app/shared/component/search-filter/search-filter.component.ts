@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-search-filter',
@@ -8,15 +7,15 @@ import { Subject } from 'rxjs';
 })
 export class SearchFilterComponent implements OnInit {
 
-  @Output() 
+  @Output()
   searchEvent = new EventEmitter<string>();
 
   /** Element input on the dom */
-  @ViewChild()
+  @ViewChild('searchField', {static: false})
   searchFilter: ElementRef;
 
   /** Value to be searched */
-  searchInput: string;  
+  searchInput: string;
 
   constructor() { }
 

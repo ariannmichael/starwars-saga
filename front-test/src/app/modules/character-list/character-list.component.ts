@@ -27,6 +27,7 @@ export class CharacterListComponent implements OnInit {
       });
   }
 
+  /** Load the characters for the next page */
   loadNextCharacters() {
     if (this.peoplePage.next) {
       this.characterService.fetchOthersCharacters(this.peoplePage.next)
@@ -37,6 +38,7 @@ export class CharacterListComponent implements OnInit {
     }
   }
 
+  /** Load the characters for the previous page */
   loadPreviousCharacters() {
     if (this.peoplePage.previous) {
       this.characterService.fetchOthersCharacters(this.peoplePage.previous)
@@ -45,6 +47,14 @@ export class CharacterListComponent implements OnInit {
           this.charactersList = res.results;
         });
     }
+  }
+
+  searchCharacters(name: string) {
+    this.characterService.findCharacters(name)
+      .subscribe(res => {
+        this.peoplePage = res;
+        this.charactersList = res.results;
+      });
   }
 
 }
