@@ -1,0 +1,18 @@
+<div class="col-2" style="padding: 100px 100px 0px 100px;">
+  <app-search-filter></app-search-filter>
+</div>
+
+<div class="col-md-10" style="padding: 30px 100px 100px 100px;">
+  <ng-container *ngFor="let character of charactersList">
+    <ul>{{character.name}}</ul>
+  </ng-container>
+  
+  
+  <ng-container *ngIf="peoplePage?.previous">
+    <button (click)="loadPreviousCharacters()">Previous</button>
+  </ng-container>
+  
+  <ng-container *ngIf="peoplePage?.next">
+    <button (click)="loadNextCharacters()">Next</button>
+  </ng-container>
+</div>
