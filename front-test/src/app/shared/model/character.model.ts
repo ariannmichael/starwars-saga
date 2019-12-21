@@ -1,7 +1,7 @@
 export interface Character {
     name: string;
-    height: string;
-    mass: string;
+    height: number;
+    mass: number;
     hair_color: string;
     skin_color: string;
     eye_color: string;
@@ -14,4 +14,5 @@ export interface Character {
     starships: string[];
     created: Date;
     edited: Date;
+    url: string;
 }

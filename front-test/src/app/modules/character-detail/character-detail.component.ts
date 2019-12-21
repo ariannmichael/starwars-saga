@@ -1,4 +1,7 @@
+import { CharacterService } from 'src/app/core/service/character.service';
+import { Character } from 'src/app/shared/model/character.model';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-character-detail',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharacterDetailComponent implements OnInit {
 
-  constructor() { }
+  characterId: string;
+
+  character: Character;
+
+  constructor(
+    private route: ActivatedRoute,
+    private characterService: CharacterService
+  ) { }
 
   ngOnInit() {
+    this.characterId = this.route.snapshot.paramMap.get('id');
+    this.loadCharacter();
+  }
+
+  loadCharacter() {
+    this.characterService.findCharactersById(this.characterId)
+      .subscribe(res => this.character = res);
   }
 
 }

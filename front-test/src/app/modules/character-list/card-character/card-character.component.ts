@@ -16,4 +16,8 @@ export class CardCharacterComponent implements OnInit {
   ngOnInit() {
   }
 
+  /** Get character id from his url */
+  get characterId(): string {
+    return this.character.url.split('/').slice(-2)[0];
+  }
 }

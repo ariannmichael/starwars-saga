@@ -1,3 +1,5 @@
 <div *ngIf="character">
-  {{ character.name }}
+  <a [routerLink]="[ '/detail', characterId]">
+    {{ character.name }}
+  </a>
 </div>

@@ -51,7 +51,7 @@ export class CharacterListComponent implements OnInit {
 
   /** Search character base on the input */
   searchCharacters(name: string) {
-    this.characterService.findCharacters(name)
+    this.characterService.findCharactersByName(name)
       .subscribe(res => {
         this.peoplePage = res;
         this.charactersList = res.results;

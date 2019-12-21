@@ -1,0 +1,22 @@
+.header {
+    width: 100%;
+    height: 5rem;
+    background-color: #212529;
+
+    &__items {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1vh 16vh;
+
+        &__logo {
+            height: 10vh;
+        }
+
+        &__link {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 4.5vh;        }
+    }
+}

@@ -6,7 +6,7 @@ import { CharacterDetailComponent } from './modules/character-detail/character-d
 
 const routes: Routes = [
   {path: 'list', component: CharacterListComponent},
-  {path: 'detail', component: CharacterDetailComponent},
+  {path: 'detail/:id', component: CharacterDetailComponent},
   {path: '', redirectTo: 'list', pathMatch: 'full'}
 ];
 

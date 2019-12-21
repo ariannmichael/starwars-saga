@@ -1,3 +1,4 @@
+import { HeaderModule } from './shared/component/header/header.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,7 +19,8 @@ import { CharacterDetailModule } from './modules/character-detail/character-deta
     HttpClientModule,
     FormsModule,
     CharacterListModule,
-    CharacterDetailModule
+    CharacterDetailModule,
+    HeaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
