@@ -20,7 +20,7 @@ export class CharacterListComponent implements OnInit {
   }
 
   loadFirstCharacters() {
-    this.characterService.fetchCharacters()
+    this.characterService.fetchFirstCharacters()
       .subscribe(res => {
         this.peoplePage = res;
         this.charactersList = res.results;
@@ -49,12 +49,20 @@ export class CharacterListComponent implements OnInit {
     }
   }
 
+  /** Search character base on the input */
   searchCharacters(name: string) {
     this.characterService.findCharacters(name)
       .subscribe(res => {
         this.peoplePage = res;
         this.charactersList = res.results;
       });
+  }
+
+  filterGender(gender: string) {
+    this.charactersList = this.charactersList.filter(character => character.gender === gender);
+    if(this.charactersList.length === 0) {
+      this.loadNextCharacters();
+    }
   }
 
 }

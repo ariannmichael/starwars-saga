@@ -1,10 +1,17 @@
-<div class="col-2" style="padding: 100px 100px 0px 100px;">
+<!-- SEARCH FILTER -->
+<div class="col-md-2" style="padding: 100px 100px 0px 100px;">
   <app-search-filter (searchEvent)="searchCharacters($event)"></app-search-filter>
 </div>
 
-<div class="col-md-10" style="padding: 30px 100px 100px 100px;">
+<div class="col-md-2">
+  <button (click)="filterGender('female')">Filter Gender</button>
+</div>
+
+<div class="col-md-8" style="padding: 30px 100px 100px 100px;">
   <ng-container *ngFor="let character of charactersList">
-    <ul>{{character.name}}</ul>
+    <app-card-character
+      [character]="character"
+    ></app-card-character>
   </ng-container>
   
   

@@ -1,3 +1,4 @@
+import { CardCharacterComponent } from './card-character/card-character.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CharacterListComponent } from './character-list.component';
@@ -9,6 +10,9 @@ import { SearchFilterModule } from './../../shared/component/search-filter/searc
     CommonModule,
     SearchFilterModule
   ],
-  declarations: [CharacterListComponent]
+  declarations: [
+    CharacterListComponent,
+    CardCharacterComponent
+  ]
 })
 export class CharacterListModule { }
