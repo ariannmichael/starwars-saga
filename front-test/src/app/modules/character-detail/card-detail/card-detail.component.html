@@ -1,0 +1,39 @@
+<div *ngIf="character" class="card-detail">
+  <div class="card-detail__text">
+    <p class="card-detail__text--name">
+      {{ character.name }}
+    </p>
+
+    <div class="card-detail__text-basic">
+      <div class="text-inline">
+        <p class="card-detail__text-basic--category">Height:</p>
+        <p> {{ character.height }}cm</p>
+      </div>
+      <div class="text-inline">
+          <p class="card-detail__text-basic--category">Mass:</p>
+          <p> {{ character.mass }}kg</p>
+      </div>
+      <div class="text-inline">
+          <p class="card-detail__text-basic--category">Hair Color:</p>
+          <p> {{ character.hair_color }}</p>
+      </div>
+      <div class="text-inline">
+          <p class="card-detail__text-basic--category">Skin Color:</p>
+          <p> {{ character.skin_color }}</p>
+      </div>
+      <div class="text-inline">
+          <p class="card-detail__text-basic--category">Eye Color:</p>
+          <p> {{ character.eye_color }}</p>
+      </div>
+      <div class="text-inline">
+          <p class="card-detail__text-basic--category">Birth Year:</p>
+          <p> {{ character.birth_year }}</p>
+      </div>
+      <div class="text-inline">
+          <p class="card-detail__text-basic--category">Gender:</p>
+          <p> {{ character.gender }}</p>
+      </div>
+    </div>
+  </div>
+  <p>{{character | json}}</p>
+</div>

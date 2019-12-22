@@ -1,4 +1,4 @@
-import { CardCharacterComponent } from './card-character/card-character.component';
+import { CardListComponent } from './card-list/card-list.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CharacterListComponent } from './character-list.component';
@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
   ],
   declarations: [
     CharacterListComponent,
-    CardCharacterComponent
+    CardListComponent
   ]
 })
 export class CharacterListModule { }

@@ -1,3 +1,13 @@
-<div *ngIf="character">
-  {{ character.name }}
+<div class="character-detail">
+  <p style="text-align: center; color: #ffffff">
+    Character Details
+  </p>
+
+  <div class="character-detail__card">
+    <div >
+      <app-card-detail
+        [character]="character"
+      ></app-card-detail>
+    </div>
+  </div>
 </div>

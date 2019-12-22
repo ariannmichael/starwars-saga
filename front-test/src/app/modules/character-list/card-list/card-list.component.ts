@@ -2,11 +2,11 @@ import { Character } from 'src/app/shared/model/character.model';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-card-character',
-  templateUrl: './card-character.component.html',
-  styleUrls: ['./card-character.component.scss']
+  selector: 'app-card-list',
+  templateUrl: './card-list.component.html',
+  styleUrls: ['./card-list.component.scss']
 })
-export class CardCharacterComponent implements OnInit {
+export class CardListComponent implements OnInit {
 
   @Input()
   character: Character;
