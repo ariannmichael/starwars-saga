@@ -20,3 +20,13 @@ body {
     background-position: center;
     background-size: cover;
 }
+
+.page-title {
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 500;
+    margin-top: 2rem;
+    margin-bottom: 1.3rem;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #FFC107;
+}

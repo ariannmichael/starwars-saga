@@ -1,25 +1,33 @@
-<!-- SEARCH FILTER -->
-<div class="col-md-2" style="padding: 100px 100px 0px 100px;">
-  <app-search-filter (searchEvent)="searchCharacters($event)"></app-search-filter>
-</div>
+<div class="character-detail">
+  <!-- PAGE TITLE -->
+  <p class="page-title">
+    List of Characters
+  </p>
 
-<div class="col-md-2">
-  <button (click)="filterGender('female')">Filter Gender</button>
-</div>
-
-<div class="col-md-8" style="padding: 30px 100px 100px 100px;">
-  <ng-container *ngFor="let character of charactersList">
-    <app-card-list
-      [character]="character"
-    ></app-card-list>
-  </ng-container>
+  <!-- SEARCH FILTER -->
+  <div class="col-md-2" style="padding: 100px 100px 0px 100px;">
+    <app-search-filter (searchEvent)="searchCharacters($event)"></app-search-filter>
+  </div>
   
+  <div class="col-md-2">
+    <button (click)="filterGender('female')">Filter Gender</button>
+  </div>
   
-  <ng-container *ngIf="peoplePage?.previous">
-    <button (click)="loadPreviousCharacters()">Previous</button>
-  </ng-container>
-  
-  <ng-container *ngIf="peoplePage?.next">
-    <button (click)="loadNextCharacters()">Next</button>
-  </ng-container>
+  <div class="col-md-8" style="padding: 30px 100px 100px 100px;">
+    <!-- CHARACTER CARD LIST -->
+    <ng-container *ngFor="let character of charactersList">
+      <app-card-list
+        [character]="character"
+      ></app-card-list>
+    </ng-container>
+    
+    
+    <ng-container *ngIf="peoplePage?.previous">
+      <button (click)="loadPreviousCharacters()">Previous</button>
+    </ng-container>
+    
+    <ng-container *ngIf="peoplePage?.next">
+      <button (click)="loadNextCharacters()">Next</button>
+    </ng-container>
+  </div>
 </div>
