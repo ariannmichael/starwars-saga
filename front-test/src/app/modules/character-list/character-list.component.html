@@ -10,7 +10,7 @@
   </div>
   
   <div class="col-md-2">
-    <button (click)="filterGender('female')">Filter Gender</button>
+    <button class="btn" (click)="filterGender('female')">Filter</button>
   </div>
   
   <div class="col-md-8" style="padding: 30px 100px 100px 100px;">
@@ -23,11 +23,11 @@
     
     
     <ng-container *ngIf="peoplePage?.previous">
-      <button (click)="loadPreviousCharacters()">Previous</button>
+      <button class="btn" (click)="loadPreviousCharacters()">Previous</button>
     </ng-container>
     
     <ng-container *ngIf="peoplePage?.next">
-      <button (click)="loadNextCharacters()">Next</button>
+      <button  class="btn" (click)="loadNextCharacters()">Next</button>
     </ng-container>
   </div>
 </div>

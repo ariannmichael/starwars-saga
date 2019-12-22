@@ -29,6 +29,7 @@
             ],
             "styles": [
               "src/styles.scss",
+              "node_modules/font-awesome/css/font-awesome.min.css",
               "src/assets/sass/main.scss"
             ],
             "scripts": []
