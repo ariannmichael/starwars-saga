@@ -7,5 +7,9 @@
         width: 40vh;
         padding-left: 1rem;
         font-size: 1.2rem;
+
+        &:focus {
+            box-shadow: 0 0 10px rgb(0, 255, 0);
+        }
     }
 }
