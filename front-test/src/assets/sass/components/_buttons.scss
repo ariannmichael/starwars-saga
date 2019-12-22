@@ -1,0 +1,29 @@
+//
+// Buttons
+// --------------------------------
+
+.btn {
+    background-color: $color-gray;
+    border: 3px solid $color-primary-yellow;
+    border-radius: 5rem;
+    color: $color-white;
+    font-size: 1.1rem;
+    width: 15vh;
+    height: 6vh;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $color-white;
+        color: $color-black;
+    }
+
+    &:active {
+        background-color: $color-gray;
+        color: $color-white;
+    }
+}
+
+// .btn-filter {
+
+// }
