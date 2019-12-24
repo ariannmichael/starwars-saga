@@ -24,7 +24,7 @@ export class CharacterListComponent implements OnInit {
 
   /** Limits to manage the characters to be shown */
   startLimit = 0;
-  endLimit = 10;
+  endLimit = 9;
 
   constructor(private characterService: CharacterService) { }
 
@@ -39,8 +39,8 @@ export class CharacterListComponent implements OnInit {
    */
   public configLoadingDataStrategy() {
     concat(
-      this.loadNumberOfCharacters$(),
-      this.loadAllCharacters$()
+      this.loadAllCharacters$(),
+      this.loadNumberOfCharacters$()
     ).subscribe();
   }
 
@@ -99,7 +99,7 @@ export class CharacterListComponent implements OnInit {
 
   /** Change the limits to show different characters */
   public changePages(page: number) {
-    this.endLimit = 10 * page;
-    this.startLimit = this.endLimit - 10 > 0 ? this.endLimit - 10 : 0 ;
+    this.endLimit = 9 * page;
+    this.startLimit = this.endLimit - 9 > 0 ? this.endLimit - 9 : 0 ;
   }
 }

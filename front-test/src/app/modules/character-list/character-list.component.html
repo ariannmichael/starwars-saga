@@ -1,4 +1,4 @@
-<div class="character-detail">
+<div class="character-list">
   <!-- PAGE TITLE -->
   <p class="page-title">
     List of Characters
@@ -9,7 +9,7 @@
   <div class="col-md-2" style="padding: 100px 100px 0px 100px;">
       <app-search-filter (searchEvent)="searchCharactersByName($event)"></app-search-filter>
       <app-pagination
-        [setPagination]="{'itemsCount': numberOfCharactersFiltered, 'pageSize': 10}"
+        [setPagination]="{'itemsCount': numberOfCharactersFiltered, 'pageSize': 9}"
         (goToPage)="changePages($event)"
       ></app-pagination>
   </div>
@@ -18,7 +18,7 @@
     <button class="btn">Filter</button>
   </div>
   
-  <div class="col-md-8" style="padding: 30px 100px 100px 100px;">
+  <div class="character-list__card" style="padding: 30px 100px 100px 100px;">
     <!-- CHARACTER CARD LIST -->
     <ng-container *ngFor="let character of filteredCharacters | slice: startLimit:endLimit">
       <app-card-list

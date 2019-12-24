@@ -1,5 +1,7 @@
-<div *ngIf="character">
-  <a [routerLink]="[ '/detail', characterId]">
-    {{ character.name }}
-  </a>
+<div *ngIf="character" class="card-list">
+  <div class="card-list__block">
+    <a [routerLink]="[ '/detail', characterId]">
+      {{ character.name }}
+    </a>
+  </div>
 </div>
