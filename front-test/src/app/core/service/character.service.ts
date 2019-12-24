@@ -18,7 +18,7 @@ export class CharacterService {
     const characters = [];
     let pagesNumbers = 0;
 
-    this.numberOfCharacters(1).subscribe((res: any) => {
+    this.getNumberOfCharacters(1).subscribe((res: any) => {
       pagesNumbers = Math.ceil(res / 10);
 
       for (let i = 1; i <= pagesNumbers; i++) {
@@ -43,8 +43,8 @@ export class CharacterService {
       );
   }
 
-  /** Fetch number of characters */
-  private numberOfCharacters(pageIndex: number) {
+  /** Fetch total number of characters */
+  public getNumberOfCharacters(pageIndex: number) {
     return this.http.get(this.url + '?page=' + pageIndex)
       .pipe(map((res: any) => res.count));
   }

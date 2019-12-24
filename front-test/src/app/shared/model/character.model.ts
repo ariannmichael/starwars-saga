@@ -1,3 +1,6 @@
+/**
+ * Model that represents one star wars' character from the list
+ */
 export interface Character {
     name: string;
     height: number;
