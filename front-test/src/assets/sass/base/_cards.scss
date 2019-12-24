@@ -1,0 +1,59 @@
+.card {
+    width: 190vh;
+    height: 50vh;
+    background-color: $color-white-gray;
+    border-radius: 6px;
+    padding: 10px;
+
+    &__text {
+
+        font-size: 3.5vh;
+        &--name {
+            color: $color-blue;
+
+            &--big {
+                font-size: 9vh;
+                font-weight: 600;
+                margin-bottom: 1.8rem;
+            }
+        }
+
+        &-basic {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            color: $color-darker-blue;
+            height: 240px;
+            padding-top: 10px;
+            padding-left: 10px;
+
+            &--category {
+                font-weight: 500;
+                color: $color-black;
+                margin-right: 0.2rem;
+            }
+        }
+    }
+}
+
+.card-list {
+    background-color: $color-black;
+    border: 3px solid $color-blue;
+    border-radius: 8px;
+    text-align: center;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 10px;
+    height: 300px;
+    width: 270px;
+    margin-top: 8px;
+
+    &__block {
+        background-color: $color-white-gray;
+        border: 3px solid $color-blue;
+        border-radius: 8px;
+        margin-top: 8px;
+    }
+}

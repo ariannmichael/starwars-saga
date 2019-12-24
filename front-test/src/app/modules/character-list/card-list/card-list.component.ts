@@ -20,4 +20,14 @@ export class CardListComponent implements OnInit {
   get characterId(): string {
     return this.character.url.split('/').slice(-2)[0];
   }
+
+  /** Get if height is unknown, will not show the measure  */
+  get isHeightUnknown(): boolean {
+    return this.character.height === 'unknown';
+  }
+
+  /** Get if mass is unknown, will not show the measure  */
+  get isMassUnknown(): boolean {
+    return this.character.mass === 'unknown';
+  }
 }

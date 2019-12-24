@@ -24,7 +24,7 @@ export class CharacterListComponent implements OnInit {
 
   /** Limits to manage the characters to be shown */
   startLimit = 0;
-  endLimit = 9;
+  endLimit = 8;
 
   constructor(private characterService: CharacterService) { }
 
@@ -41,7 +41,7 @@ export class CharacterListComponent implements OnInit {
     concat(
       this.loadAllCharacters$(),
       this.loadNumberOfCharacters$()
-    ).subscribe();
+    ).toPromise().then();
   }
 
   public loadNumberOfCharacters$(): Observable<void> {
@@ -76,30 +76,25 @@ export class CharacterListComponent implements OnInit {
    */
   public searchCharactersByName(name: string) {
     if (name.length > 0) {
-      this.loadCharactersByName$(name).toPromise().then();
+      this.loadCharactersByName(name);
     } else {
       this.filteredCharacters = this.charactersList;
       this.numberOfCharactersFiltered = this.numberOfCharacters;
     }
   }
 
-  private loadCharactersByName$(name: string): Observable<void> {
-    return new Observable<void>(subscriber => {
-      this.characterService.findCharactersByName(name)
-        .subscribe(res => {
-          this.filteredCharacters = res.results;
-          this.numberOfCharactersFiltered = res.count;
-
-          subscriber.next();
-          subscriber.complete();
-        });
-    });
+  private loadCharactersByName(name: string) {
+    this.characterService.findCharactersByName(name)
+      .subscribe(res => {
+        this.filteredCharacters = res.results;
+        this.numberOfCharactersFiltered = res.count;
+      });
   }
 
 
   /** Change the limits to show different characters */
   public changePages(page: number) {
-    this.endLimit = 9 * page;
-    this.startLimit = this.endLimit - 9 > 0 ? this.endLimit - 9 : 0 ;
+    this.endLimit = 8 * page;
+    this.startLimit = this.endLimit - 8 > 0 ? this.endLimit - 8 : 0 ;
   }
 }

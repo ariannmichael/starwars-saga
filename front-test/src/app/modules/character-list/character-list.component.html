@@ -6,10 +6,10 @@
 
   
   <!-- SEARCH FILTER -->
-  <div class="col-md-2" style="padding: 100px 100px 0px 100px;">
+  <div style="padding: 100px 100px 0px 100px;">
       <app-search-filter (searchEvent)="searchCharactersByName($event)"></app-search-filter>
       <app-pagination
-        [setPagination]="{'itemsCount': numberOfCharactersFiltered, 'pageSize': 9}"
+        [setPagination]="{'itemsCount': numberOfCharactersFiltered, 'pageSize': 8}"
         (goToPage)="changePages($event)"
       ></app-pagination>
   </div>
@@ -18,12 +18,14 @@
     <button class="btn">Filter</button>
   </div>
   
-  <div class="character-list__card" style="padding: 30px 100px 100px 100px;">
-    <!-- CHARACTER CARD LIST -->
-    <ng-container *ngFor="let character of filteredCharacters | slice: startLimit:endLimit">
-      <app-card-list
-        [character]="character"
-      ></app-card-list>
-    </ng-container>
+  <div class="align-center">
+    <div class="character-list__card">
+      <!-- CHARACTER CARD LIST -->
+      <ng-container *ngFor="let character of filteredCharacters | slice: startLimit:endLimit">
+        <app-card-list
+          [character]="character"
+        ></app-card-list>
+      </ng-container>
+    </div>
   </div>
 </div>
