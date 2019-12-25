@@ -5,6 +5,15 @@
       Character Details
     </p>
   
+    <button class="btn" (click)="openModal('custom-modal-1')">MODAL</button>
+
+    <!-- MODAL -->
+    <app-modal #customModal id="custom-modal-1">
+      <h1>A Custom Modal!</h1>
+      <p>Home page text: <input type="text" /></p>
+      <button (click)="closeModal('custom-modal-1');">Close</button>
+    </app-modal>
+
     <!-- CHARACTER CARD DETAILS -->
     <div class="character-detail__card">
       <div >
