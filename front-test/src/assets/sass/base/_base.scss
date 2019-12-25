@@ -1,7 +1,13 @@
 .align-center {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.align-right {
     align-content: center;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .text-inline {

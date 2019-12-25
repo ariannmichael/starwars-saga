@@ -1,22 +1,24 @@
 <div>
-
-    <button
+  <button
+    class="btn btn-pagination"
     *ngIf="currentPage !== 1"
     (click)="setPage(currentPage - 1)"
-   >
-     &lt; <!-- This is the symbol for '<' icon -->
-</button>
-   <button
-     *ngFor="let page of pagesArray; let index = index"
-     [ngClass]="{ 'active': currentPage === index + 1 }"
-     (click)="setPage(index + 1)"
-   >
-     {{ index + 1 }}
-</button>
-   <button 
-     *ngIf="currentPage !== pagesArray.length"
-     (click)="setPage(currentPage + 1)"
-   >
-     &gt; <!-- This is the symbol for '>' icon -->
-</button>
+  >
+    &lt; <!-- This is the symbol for '<' icon -->
+  </button>
+  <button
+    class="btn btn-pagination"
+    *ngFor="let page of pagesArray; let index = index"
+    [ngClass]="{ 'active': currentPage === index + 1 }"
+    (click)="setPage(index + 1)"
+  >
+    {{ index + 1 }}
+  </button>
+  <button 
+    class="btn btn-pagination"
+    *ngIf="currentPage !== pagesArray.length"
+    (click)="setPage(currentPage + 1)"
+  >
+    &gt; <!-- This is the symbol for '>' icon -->
+  </button>
 </div>

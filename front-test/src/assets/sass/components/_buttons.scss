@@ -3,25 +3,25 @@
 // --------------------------------
 
 .btn {
-    background-color: $color-gray;
-    border: 3px solid $color-primary-yellow;
+    background-color: $color-primary-yellow;
+    color: $color-black;
     border-radius: 5rem;
-    color: $color-white;
     font-size: 1.1rem;
-    width: 15vh;
-    height: 6vh;
     outline: none;
+    border: none;
     cursor: pointer;
 
     &:hover {
-        background-color: $color-white;
+        background-color: $color-light-yellow;
         color: $color-black;
     }
+}
 
-    &:active {
-        background-color: $color-gray;
-        color: $color-white;
-    }
+.btn-pagination {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 100%;
+    margin-right: 0.3rem;
 }
 
 // .btn-filter {

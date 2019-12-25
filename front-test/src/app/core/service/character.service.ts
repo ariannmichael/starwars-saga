@@ -11,30 +11,39 @@ import { PeoplePageSummary } from 'src/app/shared/model/people-page-summary';
 export class CharacterService {
   url = 'https://swapi.co/api/people/';
 
+  private characters = [];
+
   constructor(private http: HttpClient) {}
 
   /** Fetch all characters from all pages */
   async fetchAllCharacters() {
-    const characters = [];
-    let pagesNumbers = 0;
+    this.http.get(this.url)
+      .subscribe((res: PeoplePageSummary) => {
+        res.results.map(el => this.characters.push(el));
 
-    this.getNumberOfCharacters(1).subscribe((res: any) => {
-      pagesNumbers = Math.ceil(res / 10);
+        if (res.next) {
+          this.fetchNextCharacters(res.next);
+        }
+      });
 
-      for (let i = 1; i <= pagesNumbers; i++) {
-        this.fetchCharacters(i)
-          .subscribe(data => {
-              data.map(character => characters.push(character));
-          });
-      }
+    return this.characters;
+  }
 
-    });
+  private fetchNextCharacters(pageUrl: string) {
+    this.fetchByPage(pageUrl)
+      .subscribe(res => {
+        res.results.map(el => this.characters.push(el));
 
-    return characters;
+        if (res.next) {
+          this.fetchNextCharacters(res.next);
+        } else {
+          return;
+        }
+      });
   }
 
   /** Fetch all characters from page */
-  private fetchCharacters(pageIndex: number): Observable<Character[]> {
+  private fetchCharacters(pageIndex: string): Observable<Character[]> {
     return this.http.get(this.url + '?page=' + pageIndex)
       .pipe(
         map((res: any) => {
@@ -47,6 +56,10 @@ export class CharacterService {
   public getNumberOfCharacters(pageIndex: number) {
     return this.http.get(this.url + '?page=' + pageIndex)
       .pipe(map((res: any) => res.count));
+  }
+
+  public fetchByPage(pageUrl: string): Observable<PeoplePageSummary> {
+    return this.http.get(pageUrl);
   }
 
   public findCharactersByName(name: string): Observable<PeoplePageSummary> {

@@ -15,8 +15,8 @@ body {
     position: relative;
 }
 
-body {
-    background-image: url('../src/assets/image/star_background.jpg');
+.background-img {
+    background-image: url('./assets/image/star_background.jpg');
     background-position: center;
     background-size: cover;
 }

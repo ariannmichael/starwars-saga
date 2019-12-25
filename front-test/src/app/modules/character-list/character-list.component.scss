@@ -3,5 +3,10 @@
         display: grid;
         grid-template-columns: 270px 270px 270px 270px;
         grid-gap: 20px 50px;
+        height: 100vh;
     }
+}
+
+.pg-padding {
+    padding: 4vh 6vh;
 }

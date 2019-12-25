@@ -76,6 +76,7 @@ export class CharacterListComponent implements OnInit {
    */
   public searchCharactersByName(name: string) {
     if (name.length > 0) {
+      this.filteredCharacters = [];
       this.loadCharactersByName(name);
     } else {
       this.filteredCharacters = this.charactersList;
@@ -86,8 +87,28 @@ export class CharacterListComponent implements OnInit {
   private loadCharactersByName(name: string) {
     this.characterService.findCharactersByName(name)
       .subscribe(res => {
-        this.filteredCharacters = res.results;
+        res.results.map(x => this.filteredCharacters.push(x));
         this.numberOfCharactersFiltered = res.count;
+
+        if (res.next) {
+          this.loadNextPage(res.next);
+        }
+      });
+  }
+
+  /** Keep loading pages if there is a next page
+   *  and getting pages' characters
+   */
+  private loadNextPage(pageUrl: string) {
+    this.characterService.fetchByPage(pageUrl)
+      .subscribe(res => {
+        res.results.map(x => this.filteredCharacters.push(x));
+
+        if (res.next) {
+          this.loadNextPage(res.next);
+        } else {
+          return;
+        }
       });
   }
 
