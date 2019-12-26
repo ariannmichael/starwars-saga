@@ -1,5 +1,5 @@
 import { ModalService } from './../../../core/service/modal.service';
-import { Component, OnInit, ElementRef, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, OnDestroy, ContentChild, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -8,9 +8,19 @@ import { Component, OnInit, ElementRef, Input, OnDestroy } from '@angular/core';
 })
 export class ModalComponent implements OnInit, OnDestroy {
 
+  /** Reference to the received template headerTemplate, to be shown in the modal */
+  @ContentChild('headerTemplate', {static: false})
+  headerTemplate: TemplateRef<any>;
+
+  /** Reference to the received template contentTemplate, to be shown in the modal */
+  @ContentChild('contentTemplate', {static: false})
+  contentTemplate: TemplateRef<any>;
+
+  /** Id to identify the modal */
   @Input()
   id: string;
 
+  /** Reference to the element on the DOM */
   private modalDetail: any;
 
   constructor(

@@ -12,9 +12,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CharacterDetailComponent implements OnInit {
 
-  @ViewChild('modal', {static: false})
-  customModal: ModalComponent;
-
   characterId: string;
 
   character: Character;
@@ -34,13 +31,4 @@ export class CharacterDetailComponent implements OnInit {
     this.characterService.findCharactersById(this.characterId)
       .subscribe(res => this.character = res);
   }
-
-  openModal(id: string) {
-    this.modalService.open(id);
-  }
-
-  closeModal(id: string) {
-    this.modalService.close(id);
-  }
-
 }

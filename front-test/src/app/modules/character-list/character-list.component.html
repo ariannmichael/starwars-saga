@@ -5,16 +5,19 @@
       List of Characters
     </p>
   
-    
-    <!-- SEARCH FILTER -->
-    <div>
-      <app-search-filter (searchEvent)="searchCharactersByName($event)"></app-search-filter>
+    <div class="character-list__filters">
+      <!-- SEARCH FILTER -->
+      <div>
+        <app-search-filter (searchEvent)="searchCharactersByName($event)"></app-search-filter>
+      </div>
+
+      <!-- FILTER BUTTON -->
+      <div>
+        <button class="btn btn-filters" (click)="characterFilter.openModal()">Filters</button>
+        <app-filter-options #characterFilter></app-filter-options>
+      </div>
     </div>
     
-    <!-- FILTER BUTTON -->
-    <!-- <div>
-      <button class="btn">Filter</button>
-    </div> -->
     
     <!-- CHARACTER CARDS LIST -->
     <div class="align-center">

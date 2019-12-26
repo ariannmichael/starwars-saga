@@ -24,6 +24,39 @@
     margin-right: 0.3rem;
 }
 
-// .btn-filter {
+.btn-filters {
+  width: 13vh;
+  height: 5vh;
+}
 
-// }
+
+
+//
+// Close Button
+// -----------------------
+.btn-close {
+    position: absolute;
+    right: 28vh;
+    top: 18vh;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+    cursor: pointer;
+  }
+  .btn-close:hover {
+    opacity: 1;
+  }
+  .btn-close:before, .btn-close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 25px;
+    width: 2px;
+    background-color: #333;
+  }
+  .btn-close:before {
+    transform: rotate(45deg);
+  }
+  .btn-close:after {
+    transform: rotate(-45deg);
+  }

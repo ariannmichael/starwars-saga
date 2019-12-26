@@ -5,6 +5,13 @@
         grid-gap: 20px 50px;
         height: 100vh;
     }
+
+    &__filters {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 6vh 16vh;
+    }
 }
 
 .pg-padding {

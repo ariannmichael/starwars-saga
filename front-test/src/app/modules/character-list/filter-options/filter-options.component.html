@@ -1,0 +1,102 @@
+<div>
+  <!-- MODAL -->
+  <app-modal id="filter-modal">
+      <ng-template #headerTemplate>
+        Filters
+      </ng-template>
+      <ng-template #contentTemplate>
+
+        <div class="filter-options">
+          <form [formGroup]="filterForm">
+
+            <!-- INPUT TEXTS -->
+            <div class="flex">
+              <!-- HEIGHT -->
+              <div class="filter-category mr-2">
+                <p class="text-category">Height:</p>
+                <div class="filter-options__items">
+                  <input type="number" class="filter-options__items--input" 
+                    formControlName="height"> cm
+                </div>
+              </div>
+  
+              <!-- MASS -->
+              <div class="filter-category">
+                  <p class="text-category">Mass:</p>
+                  <div class="filter-options__items">
+                    <input type="number" class="filter-options__items--input"
+                      formControlName="height"> kg
+                  </div>
+              </div>
+            </div>
+
+            <!-- HAIR COLORS -->
+            <div class="filter-category">
+              <p class="text-category">Hair Colors:</p>
+              <div class="filter-options__items">
+                <ng-container *ngFor="let hairColor of hairColors">
+                  <label>
+                      <input type="checkbox" [value]="hairColor" (change)="onCheckChange($event, 'hairColors')">
+                      {{hairColor}}
+                  </label>
+                </ng-container>
+              </div>
+            </div>
+            
+            <!-- SKIN COLORS -->
+            <div class="filter-category">
+              <p class="text-category">Skin Colors:</p>
+              <div class="filter-options__items">
+                <ng-container *ngFor="let skinColor of skinColors">
+                  <label>
+                      <input type="checkbox" [value]="skinColor" (change)="onCheckChange($event, 'skinColors')">
+                      {{skinColor}}
+                  </label>
+                </ng-container>
+              </div>
+            </div>
+
+            <!-- EYE COLORS -->
+            <div class="filter-category">
+              <p class="text-category">Eye Colors:</p>
+              <div class="filter-options__items">
+                <ng-container *ngFor="let color of eyeColors">
+                  <label>
+                      <input type="checkbox" [value]="color" (change)="onCheckChange($event, 'eyeColors')">
+                      {{color}}
+                  </label>
+                </ng-container>
+              </div>
+            </div>
+
+            <!-- ONE OPTION SELECT -->
+            <div class="flex mb-1">
+              <!-- BIRTH YEAR -->
+              <div class="filter-category mr-3">
+                <p class="text-category">Birth Year:</p>
+                <div class="filter-options__items">
+                  <select class="filter-options__items--input-select" formControlName="birthYear">
+                    <option value=""></option>
+                    <option *ngFor="let op of yearsOptions" [ngValue]="op">{{op}}</option>
+                  </select>
+                </div>
+              </div>
+  
+              <!-- GENDER -->
+              <div class="filter-category">
+                <p class="text-category">Gender:</p>
+                <div class="filter-options__items">
+                  <select class="filter-options__items--input-select" formControlName="gender">
+                    <option value=""></option>
+                    <option *ngFor="let op of genderOptions" [ngValue]="op">{{op}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <button type="button" (click)="submit()" class="btn btn-filters">Submit</button>
+          </form>
+        </div>
+      </ng-template>
+    </app-modal>
+</div>

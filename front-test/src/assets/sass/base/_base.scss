@@ -15,6 +15,26 @@
     width: 230px;
 }
 
+.flex {
+    display: flex;
+}
+
+.mr-2 {
+    margin-right: 20px
+}
+
+.mr-3 {
+    margin-right: 30px
+}
+
+.mb-1 {
+    margin-bottom: 10px;
+}
+
+.mb-2 {
+    margin-bottom: 20px;
+}
+
 app-modal {
     display: none;
 }
