@@ -34,13 +34,13 @@ export class FilterOptionsComponent implements OnInit {
   ) {
     // create the FormGroup instance
     this.filterForm = this.fb.group({
-      height: [''],
-      mass: [''],
-      hairColors: new FormArray([]),
-      skinColors: new FormArray([]),
-      eyeColors: new FormArray([]),
-      birthYear: ['', [Validators.required]],
-      gender: ['', [Validators.required]]
+      height: [null],
+      mass: [null],
+      hairColors: [null, [Validators.required]],
+      skinColors: [null, [Validators.required]],
+      eyeColors: [null, [Validators.required]],
+      birthYear: [null, [Validators.required]],
+      gender: [null, [Validators.required]]
     });
   }
 
@@ -53,7 +53,7 @@ export class FilterOptionsComponent implements OnInit {
       this.characterService.findCharactersOptions()
       .then(res => {
         this.options = res;
-        this.options.birthYear = ['BBY', 'ABY'];
+        this.options.birthYear = ['BBY', 'ABY', 'unknown'];
         this.options.gender = ['male', 'female', 'unknown', 'n/a'];
 
       });
@@ -79,6 +79,8 @@ export class FilterOptionsComponent implements OnInit {
   submit() {
     const filter = this.fillEntity();
     this.filterOptionsEvent.emit(filter);
+
+    this.closeModal();
   }
 
   openModal() {

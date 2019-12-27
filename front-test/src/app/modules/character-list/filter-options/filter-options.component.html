@@ -25,7 +25,7 @@
                   <p class="text-category">Mass:</p>
                   <div class="filter-options__items">
                     <input type="number" class="filter-options__items--input"
-                      formControlName="height"> kg
+                      formControlName="mass"> kg
                   </div>
               </div>
             </div>
@@ -37,7 +37,7 @@
                 <p class="text-category">Hair Colors:</p>
                 <div class="filter-options__items">
                   <select class="filter-options__items--input-select" formControlName="hairColors">
-                    <option value=""></option>
+                    <option [ngValue]="null"></option>
                     <option *ngFor="let op of hairColors" [ngValue]="op">{{op}}</option>
                   </select>
                 </div>
@@ -48,7 +48,7 @@
                 <p class="text-category">Skin Colors:</p>
                 <div class="filter-options__items">
                   <select class="filter-options__items--input-select" formControlName="skinColors">
-                    <option value=""></option>
+                    <option [ngValue]="null"></option>
                     <option *ngFor="let op of skinColors" [ngValue]="op">{{op}}</option>
                   </select>
                 </div>
@@ -59,7 +59,7 @@
                 <p class="text-category">Eye Colors:</p>
                 <div class="filter-options__items">
                   <select class="filter-options__items--input-select" formControlName="eyeColors">
-                    <option value=""></option>
+                    <option [ngValue]="null"></option>
                     <option *ngFor="let op of eyeColors" [ngValue]="op">{{op}}</option>
                   </select>
                 </div>
@@ -73,7 +73,7 @@
                 <p class="text-category">Birth Year:</p>
                 <div class="filter-options__items">
                   <select class="filter-options__items--input-select" formControlName="birthYear">
-                    <option value=""></option>
+                    <option [ngValue]="null"></option>
                     <option *ngFor="let op of yearsOptions" [ngValue]="op">{{op}}</option>
                   </select>
                 </div>
@@ -84,7 +84,7 @@
                 <p class="text-category">Gender:</p>
                 <div class="filter-options__items">
                   <select class="filter-options__items--input-select" formControlName="gender">
-                    <option value=""></option>
+                    <option [ngValue]="null"></option>
                     <option *ngFor="let op of genderOptions" [ngValue]="op">{{op}}</option>
                   </select>
                 </div>

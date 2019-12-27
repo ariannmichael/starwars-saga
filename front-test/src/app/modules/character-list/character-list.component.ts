@@ -113,12 +113,70 @@ export class CharacterListComponent implements OnInit {
       });
   }
 
-  filterCharacters(filter: CharacterFilterOptions) {
-    this.filteredCharacters = this.charactersList.filter(character => {
-      if (character.gender === filter.gender[0]) {
-        return character;
-      }
+  filterCharactersByOptions(filter: CharacterFilterOptions) {
+    console.log(filter);
+
+    if (this.isFilterNull(filter)) {
+      this.filteredCharacters = this.charactersList;
+      this.numberOfCharactersFiltered = this.filteredCharacters.length;
+      return;
+    }
+
+    if (filter.height) {
+      this.filteredCharacters = this.filteredCharacters.filter(character => {
+        return character.height === filter.height.toString();
+      });
+    }
+
+    if (filter.mass) {
+      this.filteredCharacters = this.filteredCharacters.filter(character => {
+        return character.mass === filter.mass.toString();
+      });
+    }
+
+    if (filter.hairColors) {
+      this.filteredCharacters = this.filteredCharacters.filter(character => {
+        return character.hair_color === filter.hairColors.toString();
+      });
+    }
+
+    if (filter.skinColors) {
+      this.filteredCharacters = this.filteredCharacters.filter(character => {
+        return character.skin_color === filter.skinColors.toString();
+      });
+    }
+
+    if (filter.eyeColors) {
+      this.filteredCharacters = this.filteredCharacters.filter(character => {
+        return character.eye_color === filter.eyeColors.toString();
+      });
+    }
+
+    if (filter.gender) {
+      this.filteredCharacters = this.filteredCharacters.filter(character => {
+        return character.gender === filter.gender.toString();
+      });
+    }
+
+    if (filter.birthYear) {
+      this.filteredCharacters = this.filteredCharacters.filter(character => {
+        return character.birth_year.slice(-3) === filter.birthYear.toString();
+      });
+    }
+
+    setTimeout(() => {
+      // for the pagination update the number of characters
+      this.numberOfCharactersFiltered = this.filteredCharacters.length;
     });
+
+  }
+
+  /** Check if all filter's attributes is null */
+  private isFilterNull(filter: CharacterFilterOptions) {
+    return (filter === null) || (filter.height === null && filter.mass === null
+          && filter.hairColors === null && filter.skinColors === null
+          && filter.eyeColors === null && filter.birthYear === null
+          && filter.gender === null );
   }
 
 

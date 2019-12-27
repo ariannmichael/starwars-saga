@@ -14,7 +14,7 @@
       <!-- FILTER BUTTON -->
       <div>
         <button class="btn btn-filters" (click)="characterFilter.openModal()">Filters</button>
-        <app-filter-options #characterFilter (filterOptionsEvent)="filterCharacters($event)"></app-filter-options>
+        <app-filter-options #characterFilter (filterOptionsEvent)="filterCharactersByOptions($event)"></app-filter-options>
       </div>
     </div>
     
