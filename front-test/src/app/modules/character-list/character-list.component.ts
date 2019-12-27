@@ -1,3 +1,4 @@
+import { CharacterFilterOptions } from './../../shared/model/character-filter-options.model';
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/shared/model/character.model';
 import { CharacterService } from 'src/app/core/service/character.service';
@@ -37,14 +38,14 @@ export class CharacterListComponent implements OnInit {
    *  - Load the number of characters for the pagination
    *  - Load all the characters
    */
-  public configLoadingDataStrategy() {
+  private configLoadingDataStrategy() {
     concat(
       this.loadAllCharacters$(),
       this.loadNumberOfCharacters$()
     ).toPromise().then();
   }
 
-  public loadNumberOfCharacters$(): Observable<void> {
+  private loadNumberOfCharacters$(): Observable<void> {
     return new Observable<void>(subscriber => {
       this.characterService.getNumberOfCharacters(1)
         .subscribe(res => {
@@ -58,7 +59,7 @@ export class CharacterListComponent implements OnInit {
   }
 
   /** Load all characters to list from all pages */
-  public loadAllCharacters$(): Observable<void> {
+  private loadAllCharacters$(): Observable<void> {
     return new Observable<void>(subscriber => {
       this.characterService.fetchAllCharacters()
         .then(characters => {
@@ -87,7 +88,7 @@ export class CharacterListComponent implements OnInit {
   private loadCharactersByName(name: string) {
     this.characterService.findCharactersByName(name)
       .subscribe(res => {
-        res.results.map(x => this.filteredCharacters.push(x));
+        res.results.map(el => this.filteredCharacters.push(el));
         this.numberOfCharactersFiltered = res.count;
 
         if (res.next) {
@@ -102,7 +103,7 @@ export class CharacterListComponent implements OnInit {
   private loadNextPage(pageUrl: string) {
     this.characterService.fetchByPage(pageUrl)
       .subscribe(res => {
-        res.results.map(x => this.filteredCharacters.push(x));
+        res.results.map(el => this.filteredCharacters.push(el));
 
         if (res.next) {
           this.loadNextPage(res.next);
@@ -110,6 +111,14 @@ export class CharacterListComponent implements OnInit {
           return;
         }
       });
+  }
+
+  filterCharacters(filter: CharacterFilterOptions) {
+    this.filteredCharacters = this.charactersList.filter(character => {
+      if (character.gender === filter.gender[0]) {
+        return character;
+      }
+    });
   }
 
 

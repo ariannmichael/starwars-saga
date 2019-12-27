@@ -1,7 +1,10 @@
+import { Observable } from 'rxjs';
+import { Character } from './../../../shared/model/character.model';
+import { CharacterService } from './../../../core/service/character.service';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import { CharacterFilterOptions } from '../../../shared/model/character-filter-options.model';
 import { ModalService } from '../../../core/service/modal.service';
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 
 /**
@@ -15,37 +18,18 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class FilterOptionsComponent implements OnInit {
 
-  /** Options for eye, skin colors */
-  options = {
-    hairColors: [
-      'fair', 'gold', 'white', 'blue', 'light', 'red', 'green', 'green-tan',
-      'brown', 'pale', 'metal', 'grey', 'mottled green', 'brown mottle', 'dark',
-      'orange', 'blue', 'red', 'yellow', 'tan', 'silver'
-    ],
-    eyeColors: [
-      'fair', 'gold', 'white', 'blue', 'light', 'red', 'green', 'green-tan',
-      'brown', 'pale', 'metal', 'grey', 'mottled green', 'brown mottle', 'dark',
-      'orange', 'blue', 'red', 'yellow', 'tan', 'silver'
-    ],
-    skinColors: [
-      'fair', 'gold', 'white', 'blue', 'light', 'red', 'green', 'green-tan',
-      'brown', 'pale', 'metal', 'grey', 'mottled green', 'brown mottle', 'dark',
-      'orange', 'blue', 'red', 'yellow', 'tan', 'silver'
-    ],
-    birthYear: ['BBY', 'ABY'],
-    gender: ['male', 'female', 'unknown', 'n/a']
-  };
-
-
   /** FormGroup to receive the input options */
   filterForm: FormGroup;
 
+  /** Store the filter options */
+  private options = new CharacterFilterOptions();
 
   @Output()
-  filterOptions: CharacterFilterOptions;
+  filterOptionsEvent = new EventEmitter<CharacterFilterOptions>();
 
   constructor(
     private modalService: ModalService,
+    private characterService: CharacterService,
     private fb: FormBuilder
   ) {
     // create the FormGroup instance
@@ -61,39 +45,46 @@ export class FilterOptionsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadFilterOptions().toPromise().then();
   }
 
-  /**
-   * Manage the FormArrays to add select and unselect many options
-   * receives the event and the FormArray name to set the configuration
-   */
-  onCheckChange(event: any, control: any) {
-    const formArray: FormArray = this.filterForm.get(control) as FormArray;
+  loadFilterOptions() {
+    return new Observable<void>(subscriber => {
+      this.characterService.findCharactersOptions()
+      .then(res => {
+        this.options = res;
+        this.options.birthYear = ['BBY', 'ABY'];
+        this.options.gender = ['male', 'female', 'unknown', 'n/a'];
 
-    // Add selected element to the arrayForm
-    if (event.target.checked) {
-      formArray.push(new FormControl(event.target.value));
-    } else {
-      let i = 0;
-
-      formArray.controls.forEach((ctrl: FormControl) => {
-        if (ctrl.value === event.target.value) {
-          // Remove the unselected element from the arrayForm
-          formArray.removeAt(i);
-          return;
-        }
-
-        i++;
       });
-    }
+    });
   }
 
+  /** Fill entity to be emitted */
+  private fillEntity(): CharacterFilterOptions {
+    const filterOptions = new CharacterFilterOptions();
+
+    filterOptions.height = this.filterForm.value.height;
+    filterOptions.mass = this.filterForm.value.mass;
+    filterOptions.hairColors = this.filterForm.value.hairColors;
+    filterOptions.skinColors = this.filterForm.value.skinColors;
+    filterOptions.eyeColors = this.filterForm.value.eyeColors;
+    filterOptions.birthYear = this.filterForm.value.birthYear;
+    filterOptions.gender = this.filterForm.value.gender;
+
+    return filterOptions;
+  }
+
+  /** emit the filter options */
   submit() {
-    console.log(this.filterForm);
+    const filter = this.fillEntity();
+    this.filterOptionsEvent.emit(filter);
   }
 
   openModal() {
-    this.modalService.open('filter-modal');
+    setTimeout(() => {
+      this.modalService.open('filter-modal');
+    }, 500);
   }
 
   closeModal() {
