@@ -91,4 +91,10 @@
         margin: 5vh 2vh;
         border-radius: 15px;
     }
+
+    &__options {
+        display: flex;
+        justify-content: space-around;
+        padding: 5vh 0vh;
+    }
 }

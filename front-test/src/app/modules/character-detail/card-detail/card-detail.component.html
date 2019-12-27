@@ -2,7 +2,7 @@
   <div class="card-detail">
     <!-- Character Name -->
     <div class="card__text--name ft-3">
-      {{ character.name }}
+      {{ character?.name }}
     </div>
   
     <div class="card-detail__block">
@@ -15,95 +15,65 @@
           <!-- Character Height -->
           <div class="flex ft-1">
             <p class="card__text-basic--category">Height:</p>
-            <p> {{ character.height }}</p>
+            <p> {{ character?.height }}</p>
             <p *ngIf="!isHeightUnknown">cm</p>
           </div>
           <!-- Character Mass -->
           <div class="flex ft-1">
               <p class="card__text-basic--category">Mass:</p>
-              <p> {{ character.mass }}</p>
+              <p> {{ character?.mass }}</p>
               <p *ngIf="!isMassUnknown">kg</p>
           </div>
           <!-- Character Hair Color -->
           <div class="flex ft-1">
               <p class="card__text-basic--category">Hair Color:</p>
-              <p> {{ character.hair_color }}</p>
+              <p> {{ character?.hair_color }}</p>
           </div>
           <!-- Character Skin Color -->
           <div class="flex ft-1">
               <p class="card__text-basic--category">Skin Color:</p>
-              <p> {{ character.skin_color }}</p>
+              <p> {{ character?.skin_color }}</p>
           </div>
           <!-- Character Eye Color -->
           <div class="flex ft-1">
               <p class="card__text-basic--category">Eye Color:</p>
-              <p> {{ character.eye_color }}</p>
+              <p> {{ character?.eye_color }}</p>
           </div>
           <!-- Character Birth Year -->
           <div class="flex ft-1">
               <p class="card__text-basic--category">Birth Year:</p>
-              <p> {{ character.birth_year }}</p>
+              <p> {{ character?.birth_year }}</p>
           </div>
           <!-- Character Gender -->
           <div class="flex ft-1">
               <p class="card__text-basic--category">Gender:</p>
-              <p> {{ character.gender }}</p>
+              <p> {{ character?.gender }}</p>
           </div>
         </div>
       </div>
 
       <!-- FILMS DATA -->
       <div class="card-detail__category">
-          <p class="card-detail__category-title">Films:</p>
-          <hr>
-          <div class="card__text-basic card-detail__basic-data">
-            <!-- Character Height -->
-            <div class="flex ft-1">
-              <p class="card__text-basic--category">Height:</p>
-              <p> {{ character.height }}</p>
-              <p *ngIf="!isHeightUnknown">cm</p>
-            </div>
-            <!-- Character Mass -->
-            <div class="flex ft-1">
-                <p class="card__text-basic--category">Mass:</p>
-                <p> {{ character.mass }}</p>
-                <p *ngIf="!isMassUnknown">kg</p>
-            </div>
-            <!-- Character Hair Color -->
-            <div class="flex ft-1">
-                <p class="card__text-basic--category">Hair Color:</p>
-                <p> {{ character.hair_color }}</p>
-            </div>
-            <!-- Character Skin Color -->
-            <div class="flex ft-1">
-                <p class="card__text-basic--category">Skin Color:</p>
-                <p> {{ character.skin_color }}</p>
-            </div>
-            <!-- Character Eye Color -->
-            <div class="flex ft-1">
-                <p class="card__text-basic--category">Eye Color:</p>
-                <p> {{ character.eye_color }}</p>
-            </div>
-            <!-- Character Birth Year -->
-            <div class="flex ft-1">
-                <p class="card__text-basic--category">Birth Year:</p>
-                <p> {{ character.birth_year }}</p>
-            </div>
-            <!-- Character Gender -->
-            <div class="flex ft-1">
-                <p class="card__text-basic--category">Gender:</p>
-                <p> {{ character.gender }}</p>
-            </div>
-          </div>
+        <p class="card-detail__category-title">Films:</p>
+        <hr>
+        <div class="card-detail__options">
+          <ng-container *ngFor="let film of films">
+            <button class="btn btn-card--detail" (click)="filmModal.openModal()">{{film.title}}</button>
+            <app-film-modal #filmModal [film]="film"></app-film-modal>
+          </ng-container>
         </div>
+      </div>
 
-      
-        {{ character | json }}
+      <!-- PLANET DATA -->
+      <div class="card-detail__category">
+        <p class="card-detail__category-title">Planet:</p>
+        <hr>
+        <!-- <div class="card-detail__options">
+          <button class="btn btn-card--detail" (click)="filmModal.openModal()">{{film.title}}</button>
+          <app-film-modal #filmModal [film]="film"></app-film-modal>
+        </div> -->
+      </div>
+
     </div>
-
-
-    
-
-    
   </div>
 </section>

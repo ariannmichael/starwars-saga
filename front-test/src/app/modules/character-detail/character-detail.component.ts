@@ -1,8 +1,6 @@
-import { ModalService } from './../../core/service/modal.service';
-import { ModalComponent } from './../../shared/component/modal/modal.component';
 import { CharacterService } from 'src/app/core/service/character.service';
 import { Character } from 'src/app/shared/model/character.model';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -18,8 +16,7 @@ export class CharacterDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private characterService: CharacterService,
-    private modalService: ModalService
+    private characterService: CharacterService
   ) { }
 
   ngOnInit() {

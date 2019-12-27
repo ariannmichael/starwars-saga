@@ -1,4 +1,4 @@
-import { ModalModule } from './../../shared/component/modal/modal.module';
+import { ModalModule } from '../../shared/component/modals/modal/modal.module';
 import { FilterOptionsComponent } from './filter-options/filter-options.component';
 import { PaginationModule } from './../../shared/component/pagination/pagination.module';
 import { CardListComponent } from './card-list/card-list.component';

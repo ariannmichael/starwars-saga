@@ -70,3 +70,20 @@
   .btn-close:after {
     transform: rotate(-45deg);
   }
+
+
+
+// Card Detail Modal Button
+// --------------------------------
+
+.btn-card--detail {
+  background-color: $color-medium-blue;
+  color: $color-white;
+  width: 22vh; 
+  border-radius: 6px;
+
+  &:hover {
+    background-color: $color-blue;
+    color: $color-white;
+  }
+}

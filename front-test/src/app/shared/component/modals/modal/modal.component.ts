@@ -1,4 +1,4 @@
-import { ModalService } from './../../../core/service/modal.service';
+import { ModalService } from '../../../../core/service/modal.service';
 import { Component, OnInit, ElementRef, Input, OnDestroy, ContentChild, TemplateRef } from '@angular/core';
 
 @Component({
@@ -49,11 +49,11 @@ export class ModalComponent implements OnInit, OnDestroy {
     this.modalService.add(this);
   }
 
-    // remove self from modal service when component is destroyed
-    ngOnDestroy(): void {
-      this.modalService.remove(this.id);
-      this.modalDetail.remove();
-    }
+  // remove self from modal service when component is destroyed
+  ngOnDestroy(): void {
+    this.modalService.remove(this.id);
+    this.modalDetail.remove();
+  }
 
   /** Open modal */
   open() {
