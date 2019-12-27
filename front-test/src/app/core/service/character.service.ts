@@ -1,8 +1,7 @@
-import { FilterOptionsComponent } from './../../modules/character-list/filter-options/filter-options.component';
 import { CharacterFilterOptions } from './../../shared/model/character-filter-options.model';
 import { Character } from './../../shared/model/character.model';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PeoplePageSummary } from 'src/app/shared/model/people-page-summary';

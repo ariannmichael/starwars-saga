@@ -53,7 +53,7 @@ export class FilterOptionsComponent implements OnInit {
       this.characterService.findCharactersOptions()
       .then(res => {
         this.options = res;
-        this.options.birthYear = ['BBY', 'ABY', 'unknown'];
+        this.options.birthYear = ['BBY', 'ABY'];
         this.options.gender = ['male', 'female', 'unknown', 'n/a'];
 
       });

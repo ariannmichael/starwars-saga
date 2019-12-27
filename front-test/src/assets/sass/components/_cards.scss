@@ -14,12 +14,6 @@
         font-size: 3.5vh;
         &--name {
             color: $color-blue;
-
-            &--big {
-                font-size: 9vh;
-                font-weight: 600;
-                margin-bottom: 1.8rem;
-            }
         }
 
         &-basic {
@@ -40,6 +34,9 @@
     }
 }
 
+
+// Card List
+// --------------------------------------
 .card-list {
     background-color: $color-black;
     border: 3px solid $color-blue;
@@ -59,5 +56,39 @@
         border: 3px solid $color-blue;
         border-radius: 8px;
         margin-top: 8px;
+    }
+}
+
+// Card Details
+// ------------------------------------
+.card-detail {
+    background-color: $color-black;
+    border: 3px solid $color-blue;
+    border-radius: 8px;
+    text-align: center;
+    display: block;
+    padding: 4px 10px;
+    height: 120vh;
+    width: 180vh;
+    margin-top: 8px;
+
+    &__block {
+        background-color: $color-white-gray;
+        border: 3px solid $color-blue;
+        border-radius: 8px;
+        margin-top: 8px;
+        height: 104vh;
+    }
+
+    &__basic-data {
+        justify-content: space-between;
+        padding: 5vh;
+        height: auto;
+    }
+
+    &__category {
+        background-color: #DDDDDD;
+        margin: 5vh 2vh;
+        border-radius: 15px;
     }
 }

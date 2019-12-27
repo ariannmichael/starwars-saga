@@ -113,12 +113,13 @@ export class CharacterListComponent implements OnInit {
       });
   }
 
+  /** Refactor after */
   filterCharactersByOptions(filter: CharacterFilterOptions) {
     console.log(filter);
+    this.filteredCharacters = this.charactersList;
+    this.numberOfCharactersFiltered = this.filteredCharacters.length;
 
     if (this.isFilterNull(filter)) {
-      this.filteredCharacters = this.charactersList;
-      this.numberOfCharactersFiltered = this.filteredCharacters.length;
       return;
     }
 

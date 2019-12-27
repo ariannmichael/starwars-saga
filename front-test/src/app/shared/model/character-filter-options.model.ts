@@ -1,4 +1,5 @@
 /** Model to pass character's options to filter  */
+
 export class CharacterFilterOptions {
 
     constructor(

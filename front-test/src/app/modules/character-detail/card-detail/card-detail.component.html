@@ -1,41 +1,109 @@
-<div *ngIf="character" class="card-detail">
-  <div class="card-detail__text">
-    <p class="card-detail__text--name">
+<section class="background-img">
+  <div class="card-detail">
+    <!-- Character Name -->
+    <div class="card__text--name ft-3">
       {{ character.name }}
-    </p>
-
-    <div class="card__text-basic">
-      <div class="text-inline">
-        <p class="card__text-basic--category">Height:</p>
-        <p> {{ character.height }}cm</p>
-      </div>
-      <div class="text-inline">
-          <p class="card__text-basic--category">Mass:</p>
-          <p> {{ character.mass }}kg</p>
-      </div>
-      <div class="text-inline">
-          <p class="card__text-basic--category">Hair Color:</p>
-          <p> {{ character.hair_color }}</p>
-      </div>
-      <div class="text-inline">
-          <p class="card__text-basic--category">Skin Color:</p>
-          <p> {{ character.skin_color }}</p>
-      </div>
-      <div class="text-inline">
-          <p class="card__text-basic--category">Eye Color:</p>
-          <p> {{ character.eye_color }}</p>
-      </div>
-      <div class="text-inline">
-          <p class="card__text-basic--category">Birth Year:</p>
-          <p> {{ character.birth_year }}</p>
-      </div>
-      <div class="text-inline">
-          <p class="card__text-basic--category">Gender:</p>
-          <p> {{ character.gender }}</p>
-      </div>
     </div>
-  </div>
-  <p>{{character | json}}</p>
-</div>
+  
+    <div class="card-detail__block">
 
-<button type="button" class="btn">Button</button>
+      <!-- BASIC DATA -->
+      <div class="card-detail__category">
+        <p class="card-detail__category-title">Basic:</p>
+        <hr>
+        <div class="card__text-basic card-detail__basic-data">
+          <!-- Character Height -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Height:</p>
+            <p> {{ character.height }}</p>
+            <p *ngIf="!isHeightUnknown">cm</p>
+          </div>
+          <!-- Character Mass -->
+          <div class="flex ft-1">
+              <p class="card__text-basic--category">Mass:</p>
+              <p> {{ character.mass }}</p>
+              <p *ngIf="!isMassUnknown">kg</p>
+          </div>
+          <!-- Character Hair Color -->
+          <div class="flex ft-1">
+              <p class="card__text-basic--category">Hair Color:</p>
+              <p> {{ character.hair_color }}</p>
+          </div>
+          <!-- Character Skin Color -->
+          <div class="flex ft-1">
+              <p class="card__text-basic--category">Skin Color:</p>
+              <p> {{ character.skin_color }}</p>
+          </div>
+          <!-- Character Eye Color -->
+          <div class="flex ft-1">
+              <p class="card__text-basic--category">Eye Color:</p>
+              <p> {{ character.eye_color }}</p>
+          </div>
+          <!-- Character Birth Year -->
+          <div class="flex ft-1">
+              <p class="card__text-basic--category">Birth Year:</p>
+              <p> {{ character.birth_year }}</p>
+          </div>
+          <!-- Character Gender -->
+          <div class="flex ft-1">
+              <p class="card__text-basic--category">Gender:</p>
+              <p> {{ character.gender }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILMS DATA -->
+      <div class="card-detail__category">
+          <p class="card-detail__category-title">Films:</p>
+          <hr>
+          <div class="card__text-basic card-detail__basic-data">
+            <!-- Character Height -->
+            <div class="flex ft-1">
+              <p class="card__text-basic--category">Height:</p>
+              <p> {{ character.height }}</p>
+              <p *ngIf="!isHeightUnknown">cm</p>
+            </div>
+            <!-- Character Mass -->
+            <div class="flex ft-1">
+                <p class="card__text-basic--category">Mass:</p>
+                <p> {{ character.mass }}</p>
+                <p *ngIf="!isMassUnknown">kg</p>
+            </div>
+            <!-- Character Hair Color -->
+            <div class="flex ft-1">
+                <p class="card__text-basic--category">Hair Color:</p>
+                <p> {{ character.hair_color }}</p>
+            </div>
+            <!-- Character Skin Color -->
+            <div class="flex ft-1">
+                <p class="card__text-basic--category">Skin Color:</p>
+                <p> {{ character.skin_color }}</p>
+            </div>
+            <!-- Character Eye Color -->
+            <div class="flex ft-1">
+                <p class="card__text-basic--category">Eye Color:</p>
+                <p> {{ character.eye_color }}</p>
+            </div>
+            <!-- Character Birth Year -->
+            <div class="flex ft-1">
+                <p class="card__text-basic--category">Birth Year:</p>
+                <p> {{ character.birth_year }}</p>
+            </div>
+            <!-- Character Gender -->
+            <div class="flex ft-1">
+                <p class="card__text-basic--category">Gender:</p>
+                <p> {{ character.gender }}</p>
+            </div>
+          </div>
+        </div>
+
+      
+        {{ character | json }}
+    </div>
+
+
+    
+
+    
+  </div>
+</section>
