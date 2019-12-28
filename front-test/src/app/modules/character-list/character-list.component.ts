@@ -119,13 +119,29 @@ export class CharacterListComponent implements OnInit {
 
   /** Filter the list of characters through service, using filter options */
   filterCharactersByOptions(filter: CharacterFilterOptions) {
-    this.filteredCharacters = this.charactersList;
-    this.numberOfCharactersFiltered = this.filteredCharacters.length;
+    this.resetFilteredCharacters();
 
-    this.filterCharacterService.addCharacters(this.filteredCharacters);
-    this.filterCharacterService.filterCharacters(filter);
+    // Add filtered characters to the service to be used
+    this.filterCharacterService.setCharacters(this.filteredCharacters);
+
+    setTimeout(() => {
+      // filter characters, update the number of characters and pagination
+      this.filteredCharacters = this.filterCharacterService.filterCharacters(filter);
+
+      this.numberOfCharactersFiltered = this.filteredCharacters.length;
+      this.resetPages();
+    });
   }
 
+  private resetFilteredCharacters() {
+    this.filteredCharacters = this.charactersList;
+    this.numberOfCharactersFiltered = this.filteredCharacters.length;
+  }
+
+  private resetPages() {
+    this.startLimit = 0;
+    this.endLimit = 8;
+  }
 
   /** Change the limits to show different characters */
   public changePages(page: number) {

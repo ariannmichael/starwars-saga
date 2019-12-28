@@ -12,10 +12,12 @@ export class FilterCharacterService {
 
   constructor() { }
 
-  addCharacters(characters: Character[]) {
+  /** Set the list of characters to be filtered */
+  setCharacters(characters: Character[]) {
     this.characterList = characters;
   }
 
+  /** Filter the list of characters base on options */
   filterCharacters(filter: CharacterFilterOptions): Character[] {
     if (!this.isFilterNull(filter)) {
       concat(
@@ -27,9 +29,9 @@ export class FilterCharacterService {
         this.filterCharactersGender$(filter),
         this.filterCharactersBirthYear$(filter)
       ).toPromise().then();
-
-      return this.characterList;
     }
+
+    return this.characterList;
   }
 
   /** Check if all filter's attributes is null */
