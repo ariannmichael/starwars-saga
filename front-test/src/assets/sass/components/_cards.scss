@@ -3,17 +3,24 @@
 // --------------------------------
 
 .card {
-    width: 190vh;
-    height: 50vh;
+    width: 127rem;
+    height: 33.35rem;
     background-color: $color-white-gray;
     border-radius: 6px;
-    padding: 10px;
+    padding: 1rem;
 
     &__text {
 
-        font-size: 3.5vh;
+        font-size: 2.4rem;
+
         &--name {
             color: $color-blue;
+            font-size: 2.1rem;
+
+            &-detail {
+                color: $color-blue;
+                font-size: 4.5rem;
+            }
         }
 
         &-basic {
@@ -21,14 +28,16 @@
             justify-content: flex-start;
             flex-wrap: wrap;
             color: $color-darker-blue;
-            height: 240px;
-            padding-top: 10px;
-            padding-left: 10px;
+            height: 24rem;
+            padding-top: 1rem;
+            padding-left: 1rem;
+            font-size: 1.7rem;
 
             &--category {
                 font-weight: 500;
                 color: $color-black;
                 margin-right: 0.2rem;
+                font-size: 1.7rem;
             }
         }
     }
@@ -42,20 +51,19 @@
     border: 3px solid $color-blue;
     border-radius: 8px;
     text-align: center;
-    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px 10px;
-    height: 300px;
-    width: 270px;
-    margin-top: 8px;
+    padding: 5rem 1rem;
+    height: 31rem;
+    width: 27rem;
+    margin-top: 0.8rem;
 
     &__block {
         background-color: $color-white-gray;
         border: 3px solid $color-blue;
         border-radius: 8px;
-        margin-top: 8px;
+        margin-top: 0.8rem;
     }
 }
 
@@ -67,32 +75,43 @@
     border-radius: 8px;
     text-align: center;
     display: block;
-    padding: 4px 10px;
-    width: 180vh;
-    margin-top: 8px;
+    padding: 1.4rem 1.6rem;
+    width: 120rem;
+    margin-top: 0.8rem;
 
     &__block {
         background-color: $color-white-gray;
         border: 3px solid $color-blue;
         border-radius: 8px;
-        margin-top: 8px;
+        margin-top: 0.8rem;
     }
 
     &__basic-data {
         justify-content: space-between;
-        padding: 5vh;
+        padding: 3.3rem;
         height: auto;
     }
 
     &__category {
         background-color: #DDDDDD;
-        margin: 5vh 2vh;
-        border-radius: 15px;
+        margin: 3.3rem 1.3rem;
+        border-radius: 1.15rem;
     }
 
     &__options {
         display: flex;
-        justify-content: space-around;
-        padding: 5vh 0vh;
+        justify-content: space-between;
+        padding: 2rem 2rem;
+    }
+
+    &__text {
+        &-basic {
+            &--category {
+                font-weight: 500;
+                color: $color-black;
+                margin-right: 0.2rem;
+                font-size: 2rem;
+            }
+        }
     }
 }

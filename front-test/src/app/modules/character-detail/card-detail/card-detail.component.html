@@ -1,7 +1,7 @@
 <section class="background-img">
   <div class="card-detail">
     <!-- Character Name -->
-    <div class="card__text--name ft-3">
+    <div class="card__text--name-detail ft-4">
       {{ character?.name }}
     </div>
   
@@ -13,40 +13,40 @@
         <hr>
         <div class="card__text-basic card-detail__basic-data">
           <!-- Character Height -->
-          <div class="flex ft-1">
-            <p class="card__text-basic--category">Height:</p>
+          <div class="flex ft-2">
+            <p class="card-detail__text-basic--category">Height:</p>
             <p> {{ character?.height }}</p>
             <p *ngIf="!isHeightUnknown">cm</p>
           </div>
           <!-- Character Mass -->
-          <div class="flex ft-1">
-              <p class="card__text-basic--category">Mass:</p>
+          <div class="flex ft-2">
+              <p class="card-detail__text-basic--category">Mass:</p>
               <p> {{ character?.mass }}</p>
               <p *ngIf="!isMassUnknown">kg</p>
           </div>
           <!-- Character Hair Color -->
-          <div class="flex ft-1">
-              <p class="card__text-basic--category">Hair Color:</p>
+          <div class="flex ft-2">
+              <p class="card-detail__text-basic--category">Hair Color:</p>
               <p> {{ character?.hair_color }}</p>
           </div>
           <!-- Character Skin Color -->
-          <div class="flex ft-1">
-              <p class="card__text-basic--category">Skin Color:</p>
+          <div class="flex ft-2">
+              <p class="card-detail__text-basic--category">Skin Color:</p>
               <p> {{ character?.skin_color }}</p>
           </div>
           <!-- Character Eye Color -->
-          <div class="flex ft-1">
-              <p class="card__text-basic--category">Eye Color:</p>
+          <div class="flex ft-2">
+              <p class="card-detail__text-basic--category">Eye Color:</p>
               <p> {{ character?.eye_color }}</p>
           </div>
           <!-- Character Birth Year -->
-          <div class="flex ft-1">
-              <p class="card__text-basic--category">Birth Year:</p>
+          <div class="flex ft-2">
+              <p class="card-detail__text-basic--category">Birth Year:</p>
               <p> {{ character?.birth_year }}</p>
           </div>
           <!-- Character Gender -->
-          <div class="flex ft-1">
-              <p class="card__text-basic--category">Gender:</p>
+          <div class="flex ft-2">
+              <p class="card-detail__text-basic--category">Gender:</p>
               <p> {{ character?.gender }}</p>
           </div>
         </div>
@@ -66,7 +66,7 @@
 
       <!-- PLANET DATA -->
       <div class="card-detail__category">
-        <p class="card-detail__category-title">Planet:</p>
+        <p class="card-detail__category-title">Planets:</p>
         <hr>
         <div class="card-detail__options">
           <button class="btn btn-card--detail" (click)="planetModal.openModal()">{{ planet?.name }}</button>

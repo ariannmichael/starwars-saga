@@ -1,16 +1,16 @@
 .character-list {
     &__card {
         display: grid;
-        grid-template-columns: 270px 270px 270px 270px;
-        grid-gap: 20px 50px;
-        height: 100vh;
+        grid-template-columns: 27rem 27rem 27rem 27rem;
+        grid-gap: 2rem 5rem;
+        height: 66.7rem;
     }
 
     &__filters {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        padding: 6vh 16vh;
+        padding: 4rem 10.7rem;
     }
 }
 

@@ -6,7 +6,7 @@
     background-color: $color-primary-yellow;
     color: $color-black;
     border-radius: 5rem;
-    font-size: 1.1rem;
+    font-size: 2rem;
     outline: none;
     border: none;
     cursor: pointer;
@@ -18,25 +18,15 @@
 }
 
 .btn-pagination {
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 2.5rem;
+    height: 2.4rem;
     border-radius: 100%;
-    margin-right: 0.3rem;
+    margin-right: 0.7rem;
 }
 
 .btn-filters {
-  width: 13vh;
-  height: 5vh;
-
-  &--reset {
-    width: 13vh;
-    height: 5vh;
-    background-color: $color-red;
-
-    &:hover {
-      background-color: $color-white-red;
-    }
-  }
+  width: 10rem;
+  height: 3.6rem;
 }
 
 
@@ -45,32 +35,32 @@
 // Close Button
 // -----------------------
 .btn-close {
-    position: absolute;
-    right: 28vh;
-    top: 18vh;
-    width: 32px;
-    height: 32px;
-    opacity: 0.3;
-    cursor: pointer;
-  }
-  .btn-close:hover {
-    opacity: 1;
-  }
-  .btn-close:before, .btn-close:after {
-    position: absolute;
-    left: 15px;
-    content: ' ';
-    height: 25px;
-    width: 2px;
-    background-color: #333;
-  }
-  .btn-close:before {
-    transform: rotate(45deg);
-  }
-  .btn-close:after {
-    transform: rotate(-45deg);
-  }
+  position: absolute;
+  right: 21rem;
+  top: 12rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  opacity: 0.3;
+  cursor: pointer;
+}
 
+.btn-close:hover {
+  opacity: 1;
+}
+.btn-close:before, .btn-close:after {
+  position: absolute;
+  left: 1.5rem;
+  content: ' ';
+  height: 2.5rem;
+  width: 0.2rem;
+  background-color: $color-light-gray;
+}
+.btn-close:before {
+  transform: rotate(45deg);
+}
+.btn-close:after {
+  transform: rotate(-45deg);
+}
 
 
 // Card Detail Modal Button
@@ -79,8 +69,8 @@
 .btn-card--detail {
   background-color: $color-medium-blue;
   color: $color-white;
-  width: 9rem; 
-  height: 3rem;
+  width: 15rem; 
+  height: 5rem;
   border-radius: 6px;
 
   &:hover {

@@ -1,59 +1,29 @@
-.align-center {
-    display: flex;
-    align-content: center;
-    justify-content: center;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, FontAwesome,"Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
 }
 
-.align-right {
-    align-content: center;
-    display: flex;
-    justify-content: flex-end;
+html {
+    font-size: 62.5%;
 }
 
-.text-inline {
-    display: flex;
-    width: 230px;
-}
-
-.flex {
-    display: flex;
-}
-
-.mr-2 {
-    margin-right: 20px
-}
-
-.mr-3 {
-    margin-right: 30px
-}
-
-.mb-1 {
-    margin-bottom: 10px;
-}
-
-.mb-2 {
-    margin-bottom: 20px;
-}
-
-.pg-padding {
-    padding: 4vh 6vh;
-}
-
-.pd-top {
-    padding: 4vh 0vh;
-}
-
-.ft-3 {
-    font-size: 3.5rem;
-}
-
-.ft-1 {
-    font-size: 1.3rem;
+html,
+body {
+    height: 100%;
+    position: relative;
 }
 
 .modal-data {
     div {
-        margin-bottom: 20px;
+        margin-bottom: 2rem;
+    }
+
+    p {
+        font-size: 2rem;
     }
 }
 
