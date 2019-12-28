@@ -10,7 +10,7 @@ export class SpecieService {
 
   constructor(private http: HttpClient) { }
 
-  public fetchStarship(url: string): Observable<Specie> {
+  public fetchSpecie(url: string): Observable<Specie> {
     return this.http.get<Specie>(url);
   }
 

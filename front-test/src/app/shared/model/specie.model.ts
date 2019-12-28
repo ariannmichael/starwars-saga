@@ -8,5 +8,5 @@ export interface Specie {
     hair_colors?: string;
     skin_colors?: string;
     language?: string;
-    people?: string;
+    people?: string[];
 }

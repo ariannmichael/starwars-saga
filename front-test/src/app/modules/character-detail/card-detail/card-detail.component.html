@@ -58,7 +58,7 @@
         <hr>
         <div class="card-detail__options">
           <ng-container *ngFor="let film of films">
-            <button class="btn btn-card--detail" (click)="filmModal.openModal()">{{film.title}}</button>
+            <button class="btn btn-card--detail" (click)="filmModal.openModal()">{{ film?.title }}</button>
             <app-film-modal #filmModal [film]="film"></app-film-modal>
           </ng-container>
         </div>
@@ -68,10 +68,22 @@
       <div class="card-detail__category">
         <p class="card-detail__category-title">Planet:</p>
         <hr>
-        <!-- <div class="card-detail__options">
-          <button class="btn btn-card--detail" (click)="filmModal.openModal()">{{film.title}}</button>
-          <app-film-modal #filmModal [film]="film"></app-film-modal>
-        </div> -->
+        <div class="card-detail__options">
+          <button class="btn btn-card--detail" (click)="planetModal.openModal()">{{ planet?.name }}</button>
+          <app-planet-modal #planetModal [planet]="planet"></app-planet-modal>
+        </div>
+      </div>
+
+      <!-- SPECIE DATA -->
+      <div class="card-detail__category">
+        <p class="card-detail__category-title">Species:</p>
+        <hr>
+        <div class="card-detail__options">
+          <ng-container *ngFor="let specie of species">
+            <button class="btn btn-card--detail" (click)="specieModal.openModal()">{{ specie?.name }}</button>
+            <app-specie-modal #specieModal [specie]="specie"></app-specie-modal>
+          </ng-container>
+        </div>
       </div>
 
     </div>

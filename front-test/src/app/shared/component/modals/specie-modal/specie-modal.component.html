@@ -1,0 +1,74 @@
+<div *ngIf="specie">
+  <app-modal id="specie-modal">
+    <ng-template #headerTemplate>
+      Specie:
+    </ng-template>
+    <ng-template #contentTemplate>
+      <div >
+        <div class="card__text-basic card-detail__basic-data modal-data" style="padding: 0">
+
+          <!-- NAME -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Name: </p>
+            <p>{{specie.name}}</p>
+          </div>
+
+          <!-- CLASSIFICATION -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Classification: </p>
+            <p>{{specie.classification}}</p>
+          </div>
+          
+          <!-- DESIGNATION -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Designation: </p>
+            <p>{{specie.designation}}</p>
+          </div>
+          
+          <!-- AVERAGE HEIGHT -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Average Height: </p>
+            <p>{{specie.average_height}}</p>
+          </div>
+          
+          <!-- AVERAGE LIFESPAN -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Average Lifespan: </p>
+            <p>{{specie.average_lifespan}}</p>
+          </div>
+
+          <!-- EYE COLORS -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Eye Colors: </p>
+            <p>{{specie.eye_colors}}</p>
+          </div>
+
+          <!-- HAIR COLORS -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Hair Colors: </p>
+            <p>{{specie.hair_colors}}</p>
+          </div>
+
+          <!-- SKIN COLORS -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Skin Colors: </p>
+            <p>{{specie.skin_colors}}</p>
+          </div>
+
+          <!-- LANGUAGE -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Language: </p>
+            <p>{{specie.language}}</p>
+          </div>
+
+          <!-- PEOPLE -->
+          <!-- <div class="flex ft-1">
+            <p class="card__text-basic--category">Language: </p>
+            <p>{{specie.language}}</p>
+          </div> -->
+
+        </div>
+      </div>
+    </ng-template>
+  </app-modal>
+</div>

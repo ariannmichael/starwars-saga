@@ -1,3 +1,74 @@
-<p>
-  planet-modal works!
-</p>
+<div *ngIf="planet">
+  <app-modal id="planet-modal">
+    <ng-template #headerTemplate>
+      Planet:
+    </ng-template>
+    <ng-template #contentTemplate>
+      <div >
+        <div class="card__text-basic card-detail__basic-data modal-data" style="padding: 0">
+
+          <!-- NAME -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Name: </p>
+            <p>{{planet?.name}}</p>
+          </div>
+
+          <!-- DIAMETER -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Diameter: </p>
+            <p>{{planet.diameter}}</p>
+          </div>
+          
+          <!-- ROTATION PERIOD -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Rotation Period: </p>
+            <p>{{planet.rotation_period}}</p>
+          </div>
+          
+          <!-- ORBITAL PERIOD -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Orbital Period: </p>
+            <p>{{planet.orbital_period}}</p>
+          </div>
+          
+          <!-- GRAVITY -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Gravity: </p>
+            <p>{{planet.gravity}}</p>
+          </div>
+
+          <!-- POPULATION -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Population: </p>
+            <p>{{planet.population}}</p>
+          </div>
+
+          <!-- CLIMATE -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Climate: </p>
+            <p>{{planet.climate}}</p>
+          </div>
+
+          <!-- TERRAIN -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Terrain: </p>
+            <p>{{planet.terrain}}</p>
+          </div>
+
+          <!-- SURFACE WATER -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Surface Water: </p>
+            <p>{{planet.surface_water}}</p>
+          </div>
+
+          <!-- RESIDENTS -->
+          <!-- <div class="ft-1">
+            <p class="card__text-basic--category">Population: </p>
+            <p>{{planet.population}}</p>
+          </div> -->
+
+        </div>
+      </div>
+    </ng-template>
+  </app-modal>
+</div>

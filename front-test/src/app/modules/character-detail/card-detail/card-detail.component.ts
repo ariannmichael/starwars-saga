@@ -1,3 +1,7 @@
+import { Vehicle } from './../../../shared/model/vehicle.model';
+import { VehicleService } from './../../../core/service/vehicle.service';
+import { Specie } from './../../../shared/model/specie.model';
+import { SpecieService } from './../../../core/service/specie.service';
 import { PlanetService } from './../../../core/service/planet.service';
 import { Observable, forkJoin } from 'rxjs';
 import { Planet } from './../../../shared/model/planet.model';
@@ -16,24 +20,39 @@ export class CardDetailComponent implements OnInit, OnChanges {
   @Input()
   character: Character;
 
-  /** Films that the characters shows up */
+  /** Films that the characters appears */
   films: Film[] = [];
 
+  /** Character's home planet */
   planet: Planet;
+
+  /** Character's species */
+  species: Specie[] = [];
+
+  /** Character's vehicles */
+  vehicles: Vehicle[] = [];
 
   constructor(
     private filmsService: FilmsService,
-    private planetService: PlanetService
+    private planetService: PlanetService,
+    private specieService: SpecieService,
+    private vehicleService: VehicleService
   ) { }
 
   ngOnInit() {
   }
 
+  /**
+   * When the component receive the character
+   * load his data to be shown on the card
+   */
   ngOnChanges() {
     if (this.character) {
       forkJoin(
         this.loadCharacterFilms$(),
-        this.loadCharacterPlanets$()
+        this.loadCharacterPlanets$(),
+        this.loadCharacterSpecies$(),
+        this.loadCharacterVehicles$()
       )
       .toPromise().then();
     }
@@ -57,6 +76,34 @@ export class CardDetailComponent implements OnInit, OnChanges {
     return new Observable<void>(subscriber => {
       this.planetService.fetchStarship(this.character.homeworld)
         .toPromise().then(res => this.planet = res );
+
+      subscriber.next();
+      subscriber.complete();
+    });
+  }
+
+  private loadCharacterSpecies$(): Observable<void> {
+    return new Observable<void>(subscriber => {
+      this.character.species.forEach(res => {
+        this.specieService.fetchSpecie(res).toPromise()
+          .then(specie => {
+            this.species.push(specie);
+        });
+      });
+
+      subscriber.next();
+      subscriber.complete();
+    });
+  }
+
+  private loadCharacterVehicles$(): Observable<void> {
+    return new Observable<void>(subscriber => {
+      this.character.vehicles.forEach(res => {
+        this.vehicleService.fetchVehicle(res).toPromise()
+          .then(vehicle => {
+            this.vehicles.push(vehicle);
+        });
+      });
 
       subscriber.next();
       subscriber.complete();
