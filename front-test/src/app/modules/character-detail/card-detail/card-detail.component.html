@@ -86,6 +86,30 @@
         </div>
       </div>
 
+      <!-- STARSHIP DATA -->
+      <div class="card-detail__category">
+        <p class="card-detail__category-title">Starship:</p>
+        <hr>
+        <div class="card-detail__options">
+          <ng-container *ngFor="let starship of starships">
+            <button class="btn btn-card--detail" (click)="starshipModal.openModal()">{{ starship?.name }}</button>
+            <app-starship-modal #starshipModal [starship]="starship"></app-starship-modal>
+          </ng-container>
+        </div>
+      </div>
+
+      <!-- VEHICLES DATA -->
+      <div class="card-detail__category">
+        <p class="card-detail__category-title">Vehicles:</p>
+        <hr>
+        <div class="card-detail__options">
+          <ng-container *ngFor="let vehicle of vehicles">
+            <button class="btn btn-card--detail" (click)="vehicleModal.openModal()">{{ vehicle?.name }}</button>
+            <app-vehicle-modal #vehicleModal [vehicle]="vehicle"></app-vehicle-modal>
+          </ng-container>
+        </div>
+      </div>
+      
     </div>
   </div>
 </section>

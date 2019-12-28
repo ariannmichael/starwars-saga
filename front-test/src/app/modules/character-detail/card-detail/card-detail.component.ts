@@ -1,3 +1,5 @@
+import { Starship } from './../../../shared/model/starship.model';
+import { StarshipService } from './../../../core/service/starship.service';
 import { Vehicle } from './../../../shared/model/vehicle.model';
 import { VehicleService } from './../../../core/service/vehicle.service';
 import { Specie } from './../../../shared/model/specie.model';
@@ -29,6 +31,9 @@ export class CardDetailComponent implements OnInit, OnChanges {
   /** Character's species */
   species: Specie[] = [];
 
+  /** Character's starship */
+  starships: Starship[] = [];
+
   /** Character's vehicles */
   vehicles: Vehicle[] = [];
 
@@ -36,6 +41,7 @@ export class CardDetailComponent implements OnInit, OnChanges {
     private filmsService: FilmsService,
     private planetService: PlanetService,
     private specieService: SpecieService,
+    private starshipService: StarshipService,
     private vehicleService: VehicleService
   ) { }
 
@@ -52,6 +58,7 @@ export class CardDetailComponent implements OnInit, OnChanges {
         this.loadCharacterFilms$(),
         this.loadCharacterPlanets$(),
         this.loadCharacterSpecies$(),
+        this.loadCharacterStartShips$(),
         this.loadCharacterVehicles$()
       )
       .toPromise().then();
@@ -88,6 +95,20 @@ export class CardDetailComponent implements OnInit, OnChanges {
         this.specieService.fetchSpecie(res).toPromise()
           .then(specie => {
             this.species.push(specie);
+        });
+      });
+
+      subscriber.next();
+      subscriber.complete();
+    });
+  }
+
+  private loadCharacterStartShips$(): Observable<void> {
+    return new Observable<void>(subscriber => {
+      this.character.starships.forEach(res => {
+        this.starshipService.fetchStarship(res).toPromise()
+          .then(starship => {
+            this.starships.push(starship);
         });
       });
 

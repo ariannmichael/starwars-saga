@@ -1,0 +1,86 @@
+<div *ngIf="starship">
+  <app-modal id="starship-modal">
+    <ng-template #headerTemplate>
+      Starship:
+    </ng-template>
+    <ng-template #contentTemplate>
+      <div >
+        <div class="card__text-basic card-detail__basic-data modal-data" style="padding: 0">
+
+          <!-- NAME -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Name: </p>
+            <p>{{starship.name}}</p>
+          </div>
+
+          <!-- MODEL -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Model: </p>
+            <p>{{starship.model}}</p>
+          </div>
+          
+          <!-- STARSHIP CLASS -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Starship Class: </p>
+            <p>{{starship.starship_class}}</p>
+          </div>
+          
+          <!-- MANUFACTURER -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Manufacturer: </p>
+            <p>{{starship.manufacturer}}</p>
+          </div>
+          
+          <!-- LENGTH -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Length: </p>
+            <p>{{starship.length}}</p>
+          </div>
+
+          <!-- COST IN CREDITS -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Cost in Credits: </p>
+            <p>{{starship.cost_in_credits}}</p>
+          </div>
+
+          <!-- CREW -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Crew: </p>
+            <p>{{starship.crew}}</p>
+          </div>
+
+          <!-- PASSENGERS -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Passengers: </p>
+            <p>{{starship.passengers}}</p>
+          </div>
+
+          <!-- HYPERDRIVE RATING -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Hyperdrive Rating: </p>
+            <p>{{starship.hyperdrive_rating}}</p>
+          </div>
+
+          <!-- MGMLT -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">MGMLT: </p>
+            <p>{{starship.MGMLT}}</p>
+          </div>
+
+          <!-- CONSUMABLE -->
+          <div class="flex ft-1">
+            <p class="card__text-basic--category">Consumables: </p>
+            <p>{{starship.consumables}}</p>
+          </div>
+
+          <!-- PILOTS -->
+          <!-- <div class="flex ft-1">
+            <p class="card__text-basic--category">Cargo Capacity: </p>
+            <p>{{starship.max_atmosphering_speed}}</p>
+          </div> -->
+
+        </div>
+      </div>
+    </ng-template>
+  </app-modal>
+</div>

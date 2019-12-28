@@ -10,5 +10,5 @@ export interface Vehicle {
     max_atmosphering_speed?: string;
     cargo_capacity?: string;
     consumables?: string;
-    pilots?: string;
+    pilots?: string[];
 }

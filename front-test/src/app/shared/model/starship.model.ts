@@ -11,5 +11,5 @@ export interface Starship {
     hyperdrive_rating?: string;
     MGLT?: string;
     consumables?: string;
-    pilots?: string;
+    pilots?: string[];
 }
