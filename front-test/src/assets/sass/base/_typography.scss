@@ -19,3 +19,9 @@ a {
     font-weight: 500;
     color: $color-black;
 }
+
+@media(max-width: 600px) {
+    .page-title {
+        font-size: 6.5rem;
+    }
+}
