@@ -3,6 +3,9 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+/**
+ * Service to request vehicles data from the api
+ */
 @Injectable({
   providedIn: 'root'
 })

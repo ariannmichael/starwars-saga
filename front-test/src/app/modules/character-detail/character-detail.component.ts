@@ -26,6 +26,10 @@ export class CharacterDetailComponent implements OnInit {
 
   loadCharacter() {
     this.characterService.findCharactersById(this.characterId)
-      .subscribe(res => this.character = res);
+      .subscribe(res => {
+        this.character = res;
+      },
+        error => console.log(error)
+      );
   }
 }

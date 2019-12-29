@@ -47,7 +47,9 @@ export class CharacterListComponent implements OnInit {
     concat(
       this.loadAllCharacters$().pipe(take(1)),
       this.loadNumberOfCharacters$()
-    ).toPromise().then();
+    ).toPromise()
+    .then()
+    .catch(error => console.log(error));
   }
 
   /** Load all characters to list from all pages */
@@ -60,7 +62,9 @@ export class CharacterListComponent implements OnInit {
 
           subscriber.next();
           subscriber.complete();
-        });
+        },
+          error => console.log(error)
+        );
     });
   }
 
@@ -73,7 +77,9 @@ export class CharacterListComponent implements OnInit {
 
           subscriber.next();
           subscriber.complete();
-        });
+        },
+        error => console.log(error)
+        );
     });
   }
 
@@ -99,7 +105,8 @@ export class CharacterListComponent implements OnInit {
         if (res.next) {
           this.loadNextPage(res.next);
         }
-      });
+      })
+      .catch(error => console.log(error));
   }
 
   /** Keep loading pages if there is a next page
@@ -115,7 +122,9 @@ export class CharacterListComponent implements OnInit {
         } else {
           return;
         }
-      });
+      },
+        error => console.log(error)
+      );
   }
 
   /** Filter the list of characters through service, using filter options */

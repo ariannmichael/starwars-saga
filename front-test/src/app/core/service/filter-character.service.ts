@@ -3,6 +3,10 @@ import { CharacterFilterOptions } from './../../shared/model/character-filter-op
 import { Character } from './../../shared/model/character.model';
 import { Injectable } from '@angular/core';
 
+
+/**
+ * Service to filter to receive and filter a list of characters
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -28,7 +32,9 @@ export class FilterCharacterService {
         this.filterCharactersEyeColor$(filter),
         this.filterCharactersGender$(filter),
         this.filterCharactersBirthYear$(filter)
-      ).toPromise().then();
+      ).toPromise()
+      .then()
+      .catch(error => console.log(error));
     }
 
     return this.characterList;

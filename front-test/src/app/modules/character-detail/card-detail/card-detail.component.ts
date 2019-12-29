@@ -61,7 +61,9 @@ export class CardDetailComponent implements OnInit, OnChanges {
         this.loadCharacterStartShips$(),
         this.loadCharacterVehicles$()
       )
-      .toPromise().then();
+      .toPromise()
+      .then()
+      .catch(error => console.log(error));
     }
   }
 
@@ -71,7 +73,8 @@ export class CardDetailComponent implements OnInit, OnChanges {
         this.filmsService.fetchFilms(res).toPromise()
           .then(film => {
             this.films.push(film);
-        });
+          })
+          .catch(error => console.log(error));
       });
 
       subscriber.next();
@@ -82,7 +85,8 @@ export class CardDetailComponent implements OnInit, OnChanges {
   private loadCharacterPlanets$(): Observable<void> {
     return new Observable<void>(subscriber => {
       this.planetService.fetchStarship(this.character.homeworld)
-        .toPromise().then(res => this.planet = res );
+        .toPromise().then(res => this.planet = res )
+        .catch(error => console.log(error));
 
       subscriber.next();
       subscriber.complete();
@@ -95,7 +99,8 @@ export class CardDetailComponent implements OnInit, OnChanges {
         this.specieService.fetchSpecie(res).toPromise()
           .then(specie => {
             this.species.push(specie);
-        });
+        })
+        .catch(error => console.log(error));
       });
 
       subscriber.next();
@@ -109,7 +114,8 @@ export class CardDetailComponent implements OnInit, OnChanges {
         this.starshipService.fetchStarship(res).toPromise()
           .then(starship => {
             this.starships.push(starship);
-        });
+        })
+        .catch(error => console.log(error));
       });
 
       subscriber.next();
@@ -123,7 +129,8 @@ export class CardDetailComponent implements OnInit, OnChanges {
         this.vehicleService.fetchVehicle(res).toPromise()
           .then(vehicle => {
             this.vehicles.push(vehicle);
-        });
+        })
+        .catch(error => console.log(error));
       });
 
       subscriber.next();

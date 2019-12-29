@@ -6,10 +6,15 @@ import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { PeoplePageSummary } from 'src/app/shared/model/people-page-summary';
 
+/**
+ * Service to request people data from the api
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterService {
+
+  /** Url base for request people data from the api */
   url = 'https://swapi.co/api/people/';
 
   private characters = [];
@@ -31,8 +36,7 @@ export class CharacterService {
             this.fetchNextCharacters(res.next);
           }
         },
-        error => console.log(error)
-        
+          error => console.log(error)
         );
 
       subscriber.next(this.characters);
@@ -52,7 +56,9 @@ export class CharacterService {
         } else {
           return;
         }
-      });
+      },
+        error => console.log(error)
+      );
   }
 
   /** Fetch all characters from page */
@@ -88,7 +94,9 @@ export class CharacterService {
         if (res.next) {
           this.fetchNextOptions(res.next);
         }
-      });
+      },
+        error => console.log(error)
+      );
 
     return this.filterOptions;
   }
@@ -107,7 +115,9 @@ export class CharacterService {
         } else {
           return;
         }
-      });
+      },
+      error => console.log(error)
+      );
   }
 
   private addOptionsToFilter(el: any) {

@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Film } from '../../shared/model/film.model';
 
+/**
+ * Service to request films data from the api
+ */
 @Injectable({
   providedIn: 'root'
 })
