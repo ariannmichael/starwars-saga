@@ -23,14 +23,24 @@ export class CharacterService {
 
   constructor(private http: HttpClient) {}
 
-  /** Fetch all characters from all pages */
-  public fetchAllCharacters(): Observable<Character[]> {
+  /**
+   * Fetch all characters from all pages
+   * and all colors options to be shown on the filter
+   * (hairColor, skinColor and EyeColor)
+   */
+  public fetchAllCharactersData(): Observable<Character[]> {
     this.characters = [];
+    this.filterOptions.hairColors = new Set<string>();
+    this.filterOptions.skinColors = new Set<string>();
+    this.filterOptions.eyeColors = new Set<string>();
 
     return new Observable<Character[]>(subscriber => {
-      this.http.get(this.url)
+      this.http.get(this.url).pipe(take(1))
         .subscribe((res: PeoplePageSummary) => {
-          res.results.map(el => this.characters.push(el));
+          res.results.map(el => {
+            this.characters.push(el);
+            this.addOptionsToFilter(el);
+          });
 
           if (res.next) {
             this.fetchNextCharacters(res.next);
@@ -48,7 +58,10 @@ export class CharacterService {
   private fetchNextCharacters(pageUrl: string) {
     this.fetchByPage(pageUrl).pipe(take(1))
       .subscribe(res => {
-        res.results.map(el => this.characters.push(el));
+        res.results.map(el => {
+           this.characters.push(el);
+           this.addOptionsToFilter(el);
+          });
 
         // get next pages characters using recursion
         if (res.next) {
@@ -77,47 +90,11 @@ export class CharacterService {
       .pipe(map((res: any) => res.count));
   }
 
-  /** Find all colors options to be shown on the filter
+  /** Get all colors options to be shown on the filter
    *  (hairColor, skinColor and EyeColor)
    */
-  async findCharactersOptions() {
-    this.filterOptions.hairColors = new Set<string>();
-    this.filterOptions.skinColors = new Set<string>();
-    this.filterOptions.eyeColors = new Set<string>();
-
-    this.http.get(this.url)
-      .subscribe((res: PeoplePageSummary) => {
-        res.results.map(el => {
-          this.addOptionsToFilter(el);
-        });
-
-        if (res.next) {
-          this.fetchNextOptions(res.next);
-        }
-      },
-        error => console.log(error)
-      );
-
+  async getCharactersOptions() {
     return this.filterOptions;
-  }
-
-  /** Fetch the characters page by page until there is nextPage */
-  private fetchNextOptions(pageUrl: string) {
-    this.fetchByPage(pageUrl)
-      .subscribe(res => {
-        res.results.map(el => {
-          this.addOptionsToFilter(el);
-        });
-
-        // get next pages options using recursion
-        if (res.next) {
-          this.fetchNextOptions(res.next);
-        } else {
-          return;
-        }
-      },
-      error => console.log(error)
-      );
   }
 
   private addOptionsToFilter(el: any) {
@@ -127,7 +104,7 @@ export class CharacterService {
   }
 
   public fetchByPage(pageUrl: string): Observable<PeoplePageSummary> {
-    return this.http.get(pageUrl);
+    return this.http.get(pageUrl).pipe(take(1));
   }
 
   public findCharactersByName(name: string): Observable<PeoplePageSummary> {

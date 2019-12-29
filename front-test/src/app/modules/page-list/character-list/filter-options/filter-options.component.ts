@@ -50,7 +50,7 @@ export class FilterOptionsComponent implements OnInit {
 
   loadFilterOptions() {
     return new Observable<void>(subscriber => {
-      this.characterService.findCharactersOptions()
+      this.characterService.getCharactersOptions()
       .then(res => {
         this.options = res;
         this.options.birthYear = ['BBY', 'ABY'];

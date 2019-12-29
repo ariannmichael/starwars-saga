@@ -55,7 +55,7 @@ export class CharacterListComponent implements OnInit {
   /** Load all characters to list from all pages */
   private loadAllCharacters$(): Observable<void> {
     return new Observable<void>(subscriber => {
-      this.characterService.fetchAllCharacters().pipe(take(1))
+      this.characterService.fetchAllCharactersData().pipe(take(1))
         .subscribe(characters => {
           this.charactersList = characters;
           this.filteredCharacters = characters;
