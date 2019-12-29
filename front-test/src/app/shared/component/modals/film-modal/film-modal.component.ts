@@ -9,7 +9,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FilmModalComponent implements OnInit {
 
-  @Input()
   film: Film;
 
   constructor(
@@ -19,7 +18,9 @@ export class FilmModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  openModal() {
+  openModal(film: Film) {
+    this.film = film;
+
     setTimeout(() => {
       this.modalService.open('film-modal');
     }, 500);

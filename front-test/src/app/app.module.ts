@@ -6,8 +6,8 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CharacterListModule } from './modules/character-list/character-list.module';
-import { CharacterDetailModule } from './modules/character-detail/character-detail.module';
+import { CharacterListModule } from './modules/page-list/character-list/character-list.module';
+import { CharacterDetailModule } from './modules/page-detail/character-detail/character-detail.module';
 
 @NgModule({
   declarations: [

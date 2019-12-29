@@ -1,9 +1,9 @@
 import { Observable } from 'rxjs';
-import { Character } from './../../../shared/model/character.model';
-import { CharacterService } from './../../../core/service/character.service';
+import { Character } from '../../../../shared/model/character.model';
+import { CharacterService } from '../../../../core/service/character.service';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
-import { CharacterFilterOptions } from '../../../shared/model/character-filter-options.model';
-import { ModalService } from '../../../core/service/modal.service';
+import { CharacterFilterOptions } from '../../../../shared/model/character-filter-options.model';
+import { ModalService } from '../../../../core/service/modal.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 

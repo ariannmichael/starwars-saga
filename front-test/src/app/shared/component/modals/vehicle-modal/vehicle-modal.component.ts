@@ -9,7 +9,6 @@ import { ModalService } from 'src/app/core/service/modal.service';
 })
 export class VehicleModalComponent implements OnInit {
 
-  @Input()
   vehicle: Vehicle;
 
   constructor(
@@ -19,7 +18,9 @@ export class VehicleModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  openModal() {
+  openModal(vehicle: Vehicle) {
+    this.vehicle = vehicle;
+
     setTimeout(() => {
       this.modalService.open('vehicle-modal');
     }, 500);

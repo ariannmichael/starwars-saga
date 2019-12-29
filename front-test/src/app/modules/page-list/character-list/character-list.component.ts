@@ -1,5 +1,5 @@
-import { FilterCharacterService } from './../../core/service/filter-character.service';
-import { CharacterFilterOptions } from './../../shared/model/character-filter-options.model';
+import { FilterCharacterService } from '../../../core/service/filter-character.service';
+import { CharacterFilterOptions } from '../../../shared/model/character-filter-options.model';
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/shared/model/character.model';
 import { CharacterService } from 'src/app/core/service/character.service';

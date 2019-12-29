@@ -9,7 +9,6 @@ import { Planet } from 'src/app/shared/model/planet.model';
 })
 export class PlanetModalComponent implements OnInit {
 
-  @Input()
   planet: Planet;
 
   constructor(
@@ -19,7 +18,9 @@ export class PlanetModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  openModal() {
+  openModal(planet: Planet) {
+    this.planet = planet;
+
     setTimeout(() => {
       this.modalService.open('planet-modal');
     }, 500);

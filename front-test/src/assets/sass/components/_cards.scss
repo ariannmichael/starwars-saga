@@ -100,8 +100,12 @@
 
     &__options {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         padding: 2rem 2rem;
+
+        button {
+            margin-right: 7rem;
+        }
     }
 
     &__text {

@@ -9,7 +9,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SpecieModalComponent implements OnInit {
 
-  @Input()
   specie: Specie;
 
   constructor(
@@ -19,7 +18,9 @@ export class SpecieModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  openModal() {
+  openModal(specie: Specie) {
+    this.specie = specie;
+
     setTimeout(() => {
       this.modalService.open('specie-modal');
     }, 500);

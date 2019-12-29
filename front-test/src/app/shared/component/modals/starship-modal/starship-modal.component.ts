@@ -9,7 +9,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class StarshipModalComponent implements OnInit {
 
-  @Input()
   starship: Starship;
 
   constructor(
@@ -19,7 +18,9 @@ export class StarshipModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  openModal() {
+  openModal(starship: Starship) {
+    this.starship = starship;
+
     setTimeout(() => {
       this.modalService.open('starship-modal');
     }, 500);
