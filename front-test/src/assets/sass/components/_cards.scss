@@ -119,3 +119,23 @@
         }
     }
 }
+
+@media(max-width: 600px) {
+    .card-detail {
+        width: 34rem;
+
+        &__options {
+            display: block;
+
+            button {
+                margin-bottom: 2.3rem;
+            }
+        }
+
+        &__basic-data {
+            div {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
