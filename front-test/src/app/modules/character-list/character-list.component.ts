@@ -3,7 +3,8 @@ import { CharacterFilterOptions } from './../../shared/model/character-filter-op
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/shared/model/character.model';
 import { CharacterService } from 'src/app/core/service/character.service';
-import { Observable, Subscriber, concat, forkJoin } from 'rxjs';
+import { Observable, concat } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-character-list',
@@ -13,10 +14,10 @@ import { Observable, Subscriber, concat, forkJoin } from 'rxjs';
 export class CharacterListComponent implements OnInit {
 
   /** List of all characters */
-  charactersList: Character[];
+  charactersList: Character[] = [];
 
   /** List of characters returned by the filter */
-  filteredCharacters: Character[];
+  filteredCharacters: Character[] = [];
 
   /** Number of characters for the pagination */
   numberOfCharacters = 0;
@@ -44,9 +45,23 @@ export class CharacterListComponent implements OnInit {
    */
   private configLoadingDataStrategy() {
     concat(
-      this.loadAllCharacters$(),
+      this.loadAllCharacters$().pipe(take(1)),
       this.loadNumberOfCharacters$()
     ).toPromise().then();
+  }
+
+  /** Load all characters to list from all pages */
+  private loadAllCharacters$(): Observable<void> {
+    return new Observable<void>(subscriber => {
+      this.characterService.fetchAllCharacters().pipe(take(1))
+        .subscribe(characters => {
+          this.charactersList = characters;
+          this.filteredCharacters = characters;
+
+          subscriber.next();
+          subscriber.complete();
+        });
+    });
   }
 
   private loadNumberOfCharacters$(): Observable<void> {
@@ -55,20 +70,6 @@ export class CharacterListComponent implements OnInit {
         .subscribe(res => {
           this.numberOfCharacters = res;
           this.numberOfCharactersFiltered = res;
-
-          subscriber.next();
-          subscriber.complete();
-        });
-    });
-  }
-
-  /** Load all characters to list from all pages */
-  private loadAllCharacters$(): Observable<void> {
-    return new Observable<void>(subscriber => {
-      this.characterService.fetchAllCharacters()
-        .then(characters => {
-          this.charactersList = characters;
-          this.filteredCharacters = characters;
 
           subscriber.next();
           subscriber.complete();
@@ -91,7 +92,7 @@ export class CharacterListComponent implements OnInit {
 
   private loadCharactersByName(name: string) {
     this.characterService.findCharactersByName(name)
-      .subscribe(res => {
+      .toPromise().then(res => {
         res.results.map(el => this.filteredCharacters.push(el));
         this.numberOfCharactersFiltered = res.count;
 

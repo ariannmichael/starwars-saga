@@ -1,4 +1,4 @@
-import { Observable, concat } from 'rxjs';
+import { Observable, concat, forkJoin } from 'rxjs';
 import { CharacterFilterOptions } from './../../shared/model/character-filter-options.model';
 import { Character } from './../../shared/model/character.model';
 import { Injectable } from '@angular/core';

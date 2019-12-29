@@ -3,7 +3,7 @@ import { Character } from './../../shared/model/character.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 import { PeoplePageSummary } from 'src/app/shared/model/people-page-summary';
 
 @Injectable({
@@ -19,22 +19,30 @@ export class CharacterService {
   constructor(private http: HttpClient) {}
 
   /** Fetch all characters from all pages */
-  async fetchAllCharacters() {
-    this.http.get(this.url)
-      .subscribe((res: PeoplePageSummary) => {
-        res.results.map(el => this.characters.push(el));
+  public fetchAllCharacters(): Observable<Character[]> {
+    this.characters = [];
 
-        if (res.next) {
-          this.fetchNextCharacters(res.next);
-        }
-      });
+    return new Observable<Character[]>(subscriber => {
+      this.http.get(this.url)
+        .subscribe((res: PeoplePageSummary) => {
+          res.results.map(el => this.characters.push(el));
 
-    return this.characters;
+          if (res.next) {
+            this.fetchNextCharacters(res.next);
+          }
+        },
+        error => console.log(error)
+        
+        );
+
+      subscriber.next(this.characters);
+      subscriber.complete();
+    });
   }
 
   /** Fetch the characters page by page until there is nextPage */
   private fetchNextCharacters(pageUrl: string) {
-    this.fetchByPage(pageUrl)
+    this.fetchByPage(pageUrl).pipe(take(1))
       .subscribe(res => {
         res.results.map(el => this.characters.push(el));
 
