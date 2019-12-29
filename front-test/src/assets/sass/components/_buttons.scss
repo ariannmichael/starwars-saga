@@ -78,3 +78,13 @@
     color: $color-white;
   }
 }
+
+@media(max-width: 600px) {
+  .btn-pagination {
+    width: 2.5rem;
+    height: 2.4rem;
+    border-radius: 100%;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+}

@@ -25,3 +25,16 @@
         }        
     }
 }
+
+@media (max-width: 600px) {
+    .header {
+
+        &__items {
+            padding: 0.67rem 2.7rem;
+
+            &__link {
+                display: none;
+            }
+        }
+    }
+}

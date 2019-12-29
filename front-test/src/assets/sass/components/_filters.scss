@@ -1,4 +1,5 @@
 .filter {
+
     &__input {
         border-radius: 100px;
         border: none;
@@ -12,10 +13,6 @@
             box-shadow: 0 0 1rem $color-green;
         }
     }
-}
-
-.filter {
-    padding: 0.667rem;
 
     &-category {
         padding-bottom: 2rem;
@@ -54,8 +51,22 @@
     }
 }
 
-.text-category {
-    font-size: 2.2rem;
-    font-weight: 500;
-    color: $color-black;
+
+
+@media(max-width: 600px) {
+    .filter {
+        &__input {
+            border-radius: 100px;
+            border: none;
+            outline: none;
+            height: 3.7rem;
+            width: 14rem;
+            padding-left: 1.3rem;
+            font-size: 1.7rem;
+    
+            &:focus {
+                box-shadow: 0 0 1rem $color-green;
+            }
+        }
+    }
 }
