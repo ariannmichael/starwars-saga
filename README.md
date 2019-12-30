@@ -8,6 +8,8 @@ The Design for the pages is on [Figma](https://www.figma.com/file/fX8KTjBLoW2CV6
 
 ## How to run the code
 
+First go to the `front-test` directory.
+
 Run `npm install` to download and install all the project's dependencies.
 
 After run `npm start` to start the project.
