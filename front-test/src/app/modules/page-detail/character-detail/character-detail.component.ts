@@ -42,6 +42,8 @@ export class CharacterDetailComponent implements OnInit {
   @ViewChild('vehicleModal', {static: false})
   vehicleModal: VehicleModalComponent;
 
+  /** Flag to show the loading animation */
+  isLoading = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -57,6 +59,7 @@ export class CharacterDetailComponent implements OnInit {
     this.characterService.findCharactersById(this.characterId)
       .subscribe(res => {
         this.character = res;
+        this.isLoading = false;
       },
         error => console.log(error)
       );

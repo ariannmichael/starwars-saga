@@ -56,9 +56,6 @@ export class CardDetailComponent implements OnInit, OnChanges {
   /** Character's vehicles */
   vehicles: Vehicle[] = [];
 
-  /** Flag to show the loading animation */
-  isLoading = true;
-
   constructor(
     private filmsService: FilmsService,
     private planetService: PlanetService,
@@ -89,9 +86,7 @@ export class CardDetailComponent implements OnInit, OnChanges {
         this.loadCharacterVehicles$()
       )
       .toPromise()
-      .then(res => {
-        this.isLoading = false;
-      })
+      .then()
       .catch(error => console.log(error));
     }
   }
