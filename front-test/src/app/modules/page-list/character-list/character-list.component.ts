@@ -1,7 +1,7 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { FilterCharacterService } from '../../../core/service/filter-character.service';
 import { CharacterFilterOptions } from '../../../shared/model/character-filter-options.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, QueryList, AfterViewInit, ViewChildren, ChangeDetectorRef } from '@angular/core';
 import { Character } from 'src/app/shared/model/character.model';
 import { CharacterService } from 'src/app/core/service/character.service';
 import { Observable, concat } from 'rxjs';
@@ -12,7 +12,7 @@ import { take } from 'rxjs/operators';
   templateUrl: './character-list.component.html',
   styleUrls: ['./character-list.component.scss']
 })
-export class CharacterListComponent implements OnInit {
+export class CharacterListComponent implements OnInit, AfterViewInit {
 
   /** List of all characters */
   charactersList: Character[] = [];
@@ -36,15 +36,27 @@ export class CharacterListComponent implements OnInit {
   /** Flag to show the loading animation */
   isLoading = true;
 
+  @ViewChildren('cards')
+  cards: QueryList<any>;
+
   constructor(
     private characterService: CharacterService,
     private filterCharacterService: FilterCharacterService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
     this.configLoadingDataStrategy();
+  }
+
+  /** Keep loading animation until page is complete */
+  ngAfterViewInit() {
+    this.cards.changes.subscribe(t => {
+      this.isLoading = false;
+      this.cdr.detectChanges();
+    });
   }
 
   /**
@@ -59,7 +71,7 @@ export class CharacterListComponent implements OnInit {
       this.loadNumberOfCharacters$(),
       this.loadCurrentPage$()
     ).toPromise()
-    .then(res => this.isLoading = false)
+    .then()
     .catch(error => console.log(error));
   }
 
@@ -120,6 +132,8 @@ export class CharacterListComponent implements OnInit {
       this.filteredCharacters = this.charactersList;
       this.numberOfCharactersFiltered = this.numberOfCharacters;
     }
+
+    this.resetPages();
   }
 
   private loadCharactersByName(name: string) {
