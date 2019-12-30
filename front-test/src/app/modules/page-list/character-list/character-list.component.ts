@@ -5,7 +5,7 @@ import { Component, OnInit, Input, ViewChild, QueryList, AfterViewInit, ViewChil
 import { Character } from 'src/app/shared/model/character.model';
 import { CharacterService } from 'src/app/core/service/character.service';
 import { Observable, concat } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { take, delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-character-list',
@@ -54,10 +54,8 @@ export class CharacterListComponent implements OnInit, AfterViewInit {
 
   /** Keep loading animation until page is complete */
   ngAfterViewInit() {
-    this.cardsLoop.changes.subscribe(el => {
-      setTimeout(() => {
-        this.isLoading = false;
-      }, 500);
+    this.cardsLoop.changes.pipe(delay(0)).subscribe(el => {
+      this.isLoading = false;
       this.cdr.detectChanges();
     });
 
@@ -75,7 +73,7 @@ export class CharacterListComponent implements OnInit, AfterViewInit {
       this.loadNumberOfCharacters$(),
       this.loadCurrentPage$()
     ).toPromise()
-    .then()
+    .then(res => this.cdr.detectChanges())
     .catch(error => console.log(error));
   }
 
