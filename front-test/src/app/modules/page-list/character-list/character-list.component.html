@@ -19,13 +19,15 @@
       </div>
     </div>
     
+    <ng-container *ngIf="isLoading">
+      <div class="loader"></div>
+    </ng-container>
     
-    <div class="loader" *ngIf="isLoading"></div>
 
     <!-- CHARACTER CARDS LIST -->
     <div class="align-center">
-      <div class="character-list__card" >
-        <ng-container #cards *ngFor="let character of filteredCharacters | slice: startLimit:endLimit">
+      <div class="character-list__card" >        
+        <ng-container #cardsLoop *ngFor="let character of filteredCharacters | slice: startLimit:endLimit">
           <app-card-list
             [character]="character"
           ></app-card-list>

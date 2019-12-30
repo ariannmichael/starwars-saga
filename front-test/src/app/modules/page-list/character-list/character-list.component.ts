@@ -36,8 +36,9 @@ export class CharacterListComponent implements OnInit, AfterViewInit {
   /** Flag to show the loading animation */
   isLoading = true;
 
-  @ViewChildren('cards')
-  cards: QueryList<any>;
+  /** Reference to the cards loop on the dom */
+  @ViewChildren('cardsLoop')
+  cardsLoop: QueryList<any>;
 
   constructor(
     private characterService: CharacterService,
@@ -53,10 +54,13 @@ export class CharacterListComponent implements OnInit, AfterViewInit {
 
   /** Keep loading animation until page is complete */
   ngAfterViewInit() {
-    this.cards.changes.subscribe(t => {
-      this.isLoading = false;
+    this.cardsLoop.changes.subscribe(el => {
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 500);
       this.cdr.detectChanges();
     });
+
   }
 
   /**
