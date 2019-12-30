@@ -75,10 +75,18 @@ export class FilterOptionsComponent implements OnInit {
     return filterOptions;
   }
 
-  /** emit the filter options */
+  /** Emit the filter options */
   submit() {
     const filter = this.fillEntity();
     this.filterOptionsEvent.emit(filter);
+
+    this.closeModal();
+  }
+
+  /** Reset filter options and search */
+  reset() {
+    this.filterForm.reset();
+    this.filterOptionsEvent.emit(null);
 
     this.closeModal();
   }

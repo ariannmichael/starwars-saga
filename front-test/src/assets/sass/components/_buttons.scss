@@ -27,6 +27,17 @@
 .btn-filters {
   width: 10rem;
   height: 3.6rem;
+
+  &--reset {
+    width: 10rem;
+    height: 3.6rem;
+
+    background-color: $color-red;
+
+    &:hover {
+      background-color: $color-white-red;
+    }
+  }
 }
 
 
