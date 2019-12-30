@@ -1,3 +1,6 @@
+/**
+ * Model that represents one star wars' vehicle from the list
+ */
 export interface Vehicle {
     name?: string;
     model?: string;

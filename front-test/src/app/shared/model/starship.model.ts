@@ -1,3 +1,6 @@
+/**
+ * Model that represents one star wars' starship from the list
+ */
 export interface Starship {
     name?: string;
     model?: string;

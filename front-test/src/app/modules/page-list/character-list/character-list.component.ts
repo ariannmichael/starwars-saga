@@ -1,12 +1,18 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { FilterCharacterService } from '../../../core/service/filter-character.service';
 import { CharacterFilterOptions } from '../../../shared/model/character-filter-options.model';
-import { Component, OnInit, Input, ViewChild, QueryList, AfterViewInit, ViewChildren, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, QueryList, AfterViewInit, ViewChildren, ChangeDetectorRef } from '@angular/core';
 import { Character } from 'src/app/shared/model/character.model';
 import { CharacterService } from 'src/app/core/service/character.service';
 import { Observable, concat } from 'rxjs';
 import { take, delay } from 'rxjs/operators';
 
+
+/**
+ * CharacterListComponent is the page list main component
+ * show the list of star wars' characters, it has search filter by text
+ * and filter by advance options
+ */
 @Component({
   selector: 'app-character-list',
   templateUrl: './character-list.component.html',
@@ -52,7 +58,7 @@ export class CharacterListComponent implements OnInit, AfterViewInit {
     this.configLoadingDataStrategy();
   }
 
-  /** Keep loading animation until page is complete */
+  /** Keep the loading animation until page is complete */
   ngAfterViewInit() {
     this.cardsLoop.changes.pipe(delay(0)).subscribe(el => {
       this.isLoading = false;

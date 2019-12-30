@@ -1,4 +1,4 @@
-/** Interface to represent the configuration of the pagination */
+/** Model to represent the configuration of the pagination */
 
 export interface Pagination {
     itemsCount: number;

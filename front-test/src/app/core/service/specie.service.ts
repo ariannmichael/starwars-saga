@@ -1,7 +1,7 @@
-import { Specie } from './../../shared/model/specie.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Specie } from './../../shared/model/specie.model';
 
 /**
  * Service to request species data from the api

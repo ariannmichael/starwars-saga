@@ -1,7 +1,7 @@
-import { Starship } from './../../shared/model/starship.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Starship } from './../../shared/model/starship.model';
 
 /**
  * Service to starships films data from the api

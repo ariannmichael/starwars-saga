@@ -1,3 +1,6 @@
+/**
+ * Model that represents one star wars' planet from the list
+ */
 export interface Planet {
     name?: string;
     diameter?: string;

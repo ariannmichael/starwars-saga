@@ -1,7 +1,8 @@
-import { Specie } from './../../../model/specie.model';
 import { ModalService } from './../../../../core/service/modal.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Specie } from './../../../model/specie.model';
 
+/** Modal to show the specie's data */
 @Component({
   selector: 'app-specie-modal',
   templateUrl: './specie-modal.component.html',

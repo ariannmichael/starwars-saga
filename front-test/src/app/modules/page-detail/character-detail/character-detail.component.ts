@@ -1,3 +1,7 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { SpecieModalComponent } from 'src/app/shared/component/modals/specie-modal/specie-modal.component';
+import { Planet } from 'src/app/shared/model/planet.model';
 import { Vehicle } from '../../../shared/model/vehicle.model';
 import { Starship } from '../../../shared/model/starship.model';
 import { PlanetModalComponent } from '../../../shared/component/modals/planet-modal/planet-modal.component';
@@ -6,13 +10,13 @@ import { FilmModalComponent } from '../../../shared/component/modals/film-modal/
 import { Film } from '../../../shared/model/film.model';
 import { CharacterService } from 'src/app/core/service/character.service';
 import { Character } from 'src/app/shared/model/character.model';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { SpecieModalComponent } from 'src/app/shared/component/modals/specie-modal/specie-modal.component';
-import { Planet } from 'src/app/shared/model/planet.model';
 import { StarshipModalComponent } from 'src/app/shared/component/modals/starship-modal/starship-modal.component';
 import { VehicleModalComponent } from 'src/app/shared/component/modals/vehicle-modal/vehicle-modal.component';
 
+/**
+ * CharacterDetailComponent is the page detail main component
+ * show the details of a star wars' character
+ */
 @Component({
   selector: 'app-character-detail',
   templateUrl: './character-detail.component.html',
@@ -20,14 +24,17 @@ import { VehicleModalComponent } from 'src/app/shared/component/modals/vehicle-m
 })
 export class CharacterDetailComponent implements OnInit {
 
+  /** CharacterId to load his data */
   characterId: string;
 
+  /** The character to show the details */
   character: Character;
 
   /** One modal to show any film */
   @ViewChild('filmModal', {static: false})
   filmModal: FilmModalComponent;
 
+  /** One modal to show any planet */
   @ViewChild('planetModal', {static: false})
   planetModal: PlanetModalComponent;
 
@@ -39,6 +46,7 @@ export class CharacterDetailComponent implements OnInit {
   @ViewChild('starshipModal', {static: false})
   startshipModal: StarshipModalComponent;
 
+  /** One modal to show any vehicle */
   @ViewChild('vehicleModal', {static: false})
   vehicleModal: VehicleModalComponent;
 
@@ -55,6 +63,7 @@ export class CharacterDetailComponent implements OnInit {
     this.loadCharacter();
   }
 
+  /** Fetch and load the character's data */
   loadCharacter() {
     this.characterService.findCharactersById(this.characterId)
       .subscribe(res => {

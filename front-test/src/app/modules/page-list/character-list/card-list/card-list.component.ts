@@ -1,6 +1,10 @@
 import { Character } from 'src/app/shared/model/character.model';
 import { Component, OnInit, Input } from '@angular/core';
 
+/**
+ * CardListComponent is a component to mount
+ * and show the characters' data
+ */
 @Component({
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
@@ -8,6 +12,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CardListComponent implements OnInit {
 
+  /** The character that will receive to show his data */
   @Input()
   character: Character;
 

@@ -1,7 +1,8 @@
-import { Vehicle } from './../../../model/vehicle.model';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModalService } from 'src/app/core/service/modal.service';
+import { Vehicle } from './../../../model/vehicle.model';
 
+/** Modal to show the vehicle's data */
 @Component({
   selector: 'app-vehicle-modal',
   templateUrl: './vehicle-modal.component.html',

@@ -1,4 +1,4 @@
-/** Model to pass character's options to filter  */
+/** Model to pass/transfer character's options to filter  */
 
 export class CharacterFilterOptions {
 

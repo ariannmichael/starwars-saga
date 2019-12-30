@@ -1,8 +1,8 @@
 import { Character } from './character.model';
 
 /**
- * Model that represents the response
- * that comes from the request to people path
+ * Model that represents the object
+ * that comes from the request to the api: /people
  */
 export class PeoplePageSummary {
 

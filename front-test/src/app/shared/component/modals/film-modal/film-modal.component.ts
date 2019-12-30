@@ -1,7 +1,8 @@
 import { ModalService } from './../../../../core/service/modal.service';
+import { Component, OnInit } from '@angular/core';
 import { Film } from './../../../model/film.model';
-import { Component, OnInit, Input } from '@angular/core';
 
+/** Modal to show the films' data */
 @Component({
   selector: 'app-film-modal',
   templateUrl: './film-modal.component.html',

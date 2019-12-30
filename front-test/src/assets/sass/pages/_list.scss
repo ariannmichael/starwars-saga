@@ -1,3 +1,6 @@
+// Page list styles
+// ----------------------------
+
 .character-list {
     &__card {
         display: grid;
@@ -14,6 +17,9 @@
     }
 }
 
+
+// Media Queries
+//-------------------
 @media(max-width: 600px) {
     .character-list {
         &__card {

@@ -1,7 +1,8 @@
-import { Starship } from './../../../model/starship.model';
 import { ModalService } from 'src/app/core/service/modal.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Starship } from './../../../model/starship.model';
 
+/** Modal to show the starship's data */
 @Component({
   selector: 'app-starship-modal',
   templateUrl: './starship-modal.component.html',

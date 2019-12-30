@@ -1,4 +1,4 @@
-import { Observable, concat, forkJoin } from 'rxjs';
+import { Observable, concat } from 'rxjs';
 import { CharacterFilterOptions } from './../../shared/model/character-filter-options.model';
 import { Character } from './../../shared/model/character.model';
 import { Injectable } from '@angular/core';
@@ -21,7 +21,10 @@ export class FilterCharacterService {
     this.characterList = characters;
   }
 
-  /** Filter the list of characters base on options */
+  /**
+   * Filter the list of characters base on options
+   * passing function to function filtering the character list
+   */
   filterCharacters(filter: CharacterFilterOptions): Character[] {
     if (!this.isFilterNull(filter)) {
       concat(

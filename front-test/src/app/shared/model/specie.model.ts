@@ -1,3 +1,6 @@
+/**
+ * Model that represents one star wars' specie from the list
+ */
 export interface Specie {
     name?: string;
     classification?: string;

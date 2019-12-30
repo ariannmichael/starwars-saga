@@ -12,6 +12,11 @@ import { FilmsService } from '../../../../core/service/film.service';
 import { Character } from '../../../../shared/model/character.model';
 import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 
+/**
+ * CardDetailComponent fetch the all character's data
+ * and display then on the dom, for more details on the data
+ * emits a event to open a modal of descriptions
+ */
 @Component({
   selector: 'app-card-detail',
   templateUrl: './card-detail.component.html',

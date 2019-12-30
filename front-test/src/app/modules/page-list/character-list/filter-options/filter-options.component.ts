@@ -1,15 +1,14 @@
 import { Observable } from 'rxjs';
-import { Character } from '../../../../shared/model/character.model';
 import { CharacterService } from '../../../../core/service/character.service';
-import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CharacterFilterOptions } from '../../../../shared/model/character-filter-options.model';
 import { ModalService } from '../../../../core/service/modal.service';
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 
 /**
  * FilterOptionsComponent show the options to filter the characters
- * and emit the options selected
+ * uses reactive forms to the selections, and emit the options selected
  */
 @Component({
   selector: 'app-filter-options',
@@ -24,6 +23,7 @@ export class FilterOptionsComponent implements OnInit {
   /** Store the filter options */
   private options = new CharacterFilterOptions();
 
+  /** Output to emit the object to transfer the filter options */
   @Output()
   filterOptionsEvent = new EventEmitter<CharacterFilterOptions>();
 
@@ -48,6 +48,7 @@ export class FilterOptionsComponent implements OnInit {
     this.loadFilterOptions().toPromise().then();
   }
 
+  /** Set the options that the user can select */
   loadFilterOptions() {
     return new Observable<void>(subscriber => {
       this.characterService.getCharactersOptions()
@@ -55,7 +56,6 @@ export class FilterOptionsComponent implements OnInit {
         this.options = res;
         this.options.birthYear = ['BBY', 'ABY'];
         this.options.gender = ['male', 'female', 'unknown', 'n/a'];
-
       });
     });
   }
