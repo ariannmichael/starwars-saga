@@ -36,7 +36,7 @@
     <!-- PAGINATION -->
     <div class="align-right pg-padding">
       <app-pagination
-        [setPagination]="{'itemsCount': numberOfCharactersFiltered, 'pageSize': 8}"
+        [setPagination]="{'itemsCount': numberOfCharactersFiltered, 'pageSize': 8, 'pageNumber': currentPage}"
         (goToPage)="changePages($event)"
       ></app-pagination>
     </div>

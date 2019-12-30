@@ -23,6 +23,7 @@ export class PaginationComponent implements OnInit {
     if (pagination) {
       const pagesAmount = Math.ceil(pagination.itemsCount / pagination.pageSize);
       this.pagesArray = new Array(pagesAmount).fill(1);
+      this.setPage(pagination.pageNumber);
     }
   }
 

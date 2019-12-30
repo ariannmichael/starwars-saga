@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { FilterCharacterService } from '../../../core/service/filter-character.service';
 import { CharacterFilterOptions } from '../../../shared/model/character-filter-options.model';
 import { Component, OnInit } from '@angular/core';
@@ -29,12 +30,17 @@ export class CharacterListComponent implements OnInit {
   startLimit = 0;
   endLimit = 8;
 
+  /** Current page to be show */
+  currentPage = 1;
+
   /** Flag to show the loading animation */
   isLoading = true;
 
   constructor(
     private characterService: CharacterService,
-    private filterCharacterService: FilterCharacterService
+    private filterCharacterService: FilterCharacterService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -45,17 +51,19 @@ export class CharacterListComponent implements OnInit {
    * Character List will use the following configuration to load data:
    *  - Load the number of characters for the pagination
    *  - Load all the characters
+   *  - Load the current page base on the queryParams
    */
   private configLoadingDataStrategy() {
     concat(
       this.loadAllCharacters$().pipe(take(1)),
-      this.loadNumberOfCharacters$()
+      this.loadNumberOfCharacters$(),
+      this.loadCurrentPage$()
     ).toPromise()
     .then(res => this.isLoading = false)
     .catch(error => console.log(error));
   }
 
-  /** Load all characters to list from all pages */
+  /** Load all characters from all pages to the lists */
   private loadAllCharacters$(): Observable<void> {
     return new Observable<void>(subscriber => {
       this.characterService.fetchAllCharactersData().pipe(take(1))
@@ -83,6 +91,21 @@ export class CharacterListComponent implements OnInit {
         },
         error => console.log(error)
         );
+    });
+  }
+
+  /**
+   * Load and set the current page, base on the query params
+   * to keep page persistence
+   */
+  private loadCurrentPage$() {
+    return new Observable<void>(subscriber => {
+      this.activatedRoute.queryParams.subscribe(params => {
+        this.currentPage = +params['pg'] || 1;
+      });
+
+      subscriber.next();
+      subscriber.complete();
     });
   }
 
@@ -154,14 +177,20 @@ export class CharacterListComponent implements OnInit {
     this.numberOfCharactersFiltered = this.filteredCharacters.length;
   }
 
+  /** Reset to the first page */
   private resetPages() {
     this.startLimit = 0;
     this.endLimit = 8;
+
+    this.router.navigate([], {queryParams: { pg: 1 }});
   }
 
   /** Change the limits to show different characters */
   public changePages(page: number) {
     this.endLimit = 8 * page;
     this.startLimit = this.endLimit - 8 > 0 ? this.endLimit - 8 : 0 ;
+
+    // update the query params base on the new current page
+    this.router.navigate([], {queryParams: { pg: page }});
   }
 }

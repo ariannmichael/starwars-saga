@@ -68,6 +68,11 @@ export class CardDetailComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit() {
+    this.scrollUp();
+  }
+
+  private scrollUp() {
+    window.scrollTo(0, 0);
   }
 
   /**
