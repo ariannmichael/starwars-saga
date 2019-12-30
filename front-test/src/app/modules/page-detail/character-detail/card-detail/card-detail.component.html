@@ -5,6 +5,7 @@
       {{ character?.name }}
     </div>
   
+    
     <div class="card-detail__block">
 
       <!-- BASIC DATA -->
@@ -106,6 +107,8 @@
         </div>
       </div>
       
+
+      <div class="loader" *ngIf="isLoading"></div>
     </div>
   </div>
 </section>

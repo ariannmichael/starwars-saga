@@ -1,4 +1,5 @@
 <section class="background-img">
+
   <div class="character-list">
     <!-- PAGE TITLE -->
     <p class="page-title">
@@ -19,6 +20,8 @@
     </div>
     
     
+    <div class="loader" *ngIf="numberOfCharacters == 0"></div>
+
     <!-- CHARACTER CARDS LIST -->
     <div class="align-center">
       <div class="character-list__card">

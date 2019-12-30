@@ -56,6 +56,9 @@ export class CardDetailComponent implements OnInit, OnChanges {
   /** Character's vehicles */
   vehicles: Vehicle[] = [];
 
+
+  isLoading = true;
+
   constructor(
     private filmsService: FilmsService,
     private planetService: PlanetService,
@@ -81,7 +84,7 @@ export class CardDetailComponent implements OnInit, OnChanges {
         this.loadCharacterVehicles$()
       )
       .toPromise()
-      .then()
+      .then(res => this.isLoading = false)
       .catch(error => console.log(error));
     }
   }

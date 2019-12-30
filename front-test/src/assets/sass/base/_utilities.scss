@@ -58,3 +58,15 @@
 .ft-4 {
     font-size: 4.5rem;
 }
+
+.loader {
+    position: absolute;
+    left: 46%;
+    top: 50%;
+    border: 16px solid $color-white;
+    border-top: 16px solid $color-medium-blue;
+    border-radius: 50%;
+    width: 12rem;
+    height: 12rem;
+    animation: spin 2s linear infinite;
+}
