@@ -93,3 +93,13 @@ body.modal-open {
         }
     }
 }
+
+@media(max-width: 1920px) {
+    .modal {
+        &-detail {
+            &__body {
+                width: 155rem;
+            }
+        }
+    }
+}
