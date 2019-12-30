@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 /**
  * SearchFilterComponent is component that has a input field
@@ -9,26 +11,40 @@ import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '
   templateUrl: './search-filter.component.html',
   styleUrls: ['./search-filter.component.scss']
 })
-export class SearchFilterComponent implements OnInit {
+export class SearchFilterComponent implements OnInit, OnDestroy {
+
+  /** Subject to push values any time, leaving the need to press enter */
+  private searchSubject$: Subject<string> = new Subject();
 
   @Output()
   searchEvent = new EventEmitter<string>();
 
-  /** Element input on the dom */
-  @ViewChild('searchField', {static: false})
-  searchFilter: ElementRef;
-
   /** Value to be searched */
   searchInput: string;
 
-  constructor() { }
+  constructor() {
+    this.setSearchSubscription();
+  }
 
   ngOnInit() {
   }
 
+  /** Set the subject to emit a value */
+  private setSearchSubscription() {
+    this.searchSubject$.pipe(
+      debounceTime(500)
+    ).subscribe((value: string) => {
+      this.searchEvent.emit(value);
+    });
+  }
+
   /** Emit the value to be searched */
-  searchValue() {
-    this.searchEvent.emit(this.searchInput);
+  updateSearch(value: string) {
+    this.searchSubject$.next(value);
+  }
+
+  ngOnDestroy() {
+    this.searchSubject$.unsubscribe();
   }
 
 }

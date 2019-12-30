@@ -29,6 +29,9 @@ export class CharacterListComponent implements OnInit {
   startLimit = 0;
   endLimit = 8;
 
+  /** Flag to show the loading animation */
+  isLoading = true;
+
   constructor(
     private characterService: CharacterService,
     private filterCharacterService: FilterCharacterService
@@ -48,7 +51,7 @@ export class CharacterListComponent implements OnInit {
       this.loadAllCharacters$().pipe(take(1)),
       this.loadNumberOfCharacters$()
     ).toPromise()
-    .then()
+    .then(res => this.isLoading = false)
     .catch(error => console.log(error));
   }
 
@@ -97,6 +100,8 @@ export class CharacterListComponent implements OnInit {
   }
 
   private loadCharactersByName(name: string) {
+    this.isLoading = true;
+
     this.characterService.findCharactersByName(name)
       .toPromise().then(res => {
         res.results.map(el => this.filteredCharacters.push(el));
@@ -106,6 +111,7 @@ export class CharacterListComponent implements OnInit {
           this.loadNextPage(res.next);
         }
       })
+      .then(res => this.isLoading = false)
       .catch(error => console.log(error));
   }
 
