@@ -78,14 +78,14 @@
 // --------------------------------
 
 .btn-card--detail {
-  background-color: $color-medium-blue;
+  background-color: $color-blue;
   color: $color-white;
   width: 17rem; 
   height: 5rem;
   border-radius: 6px;
 
   &:hover {
-    background-color: $color-blue;
+    background-color: $color-light-blue;
     color: $color-white;
   }
 }
