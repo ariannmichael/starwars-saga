@@ -1,0 +1,148 @@
+//
+// Card
+// --------------------------------
+
+.card {
+    width: 127rem;
+    height: 33.35rem;
+    background-color: $color-white-gray;
+    border-radius: 6px;
+    padding: 1rem;
+
+    &__text {
+
+        font-size: 2.4rem;
+
+        &--name {
+            color: $color-blue;
+            font-size: 2.1rem;
+
+            &-detail {
+                color: $color-blue;
+                font-size: 4.5rem;
+            }
+        }
+
+        &-basic {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            color: $color-darker-blue;
+            height: 24rem;
+            padding-top: 1rem;
+            padding-left: 1rem;
+            font-size: 1.7rem;
+
+            &--category {
+                font-weight: 500;
+                color: $color-black;
+                margin-right: 0.2rem;
+                font-size: 1.7rem;
+            }
+        }
+    }
+}
+
+
+// Card List
+// --------------------------------------
+.card-list {
+    background-color: $color-black;
+    border: 3px solid $color-blue;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 1rem;
+    height: 31rem;
+    width: 27rem;
+    margin-top: 0.8rem;
+
+    &__block {
+        background-color: $color-white-gray;
+        border: 3px solid $color-blue;
+        border-radius: 8px;
+        margin-top: 0.8rem;
+    }
+}
+
+// Card Details
+// ------------------------------------
+.card-detail {
+    background-color: $color-black;
+    border: 3px solid $color-blue;
+    border-radius: 8px;
+    text-align: center;
+    display: block;
+    padding: 1.4rem 1.6rem;
+    width: 120rem;
+    margin-top: 0.8rem;
+
+    &__block {
+        background-color: $color-white-gray;
+        border: 3px solid $color-blue;
+        border-radius: 8px;
+        margin-top: 0.8rem;
+    }
+
+    &__basic-data {
+        justify-content: space-between;
+        padding: 3.3rem;
+        height: auto;
+
+        div {
+            margin-right: 1rem;
+        }
+    }
+
+    &__category {
+        background-color: #DDDDDD;
+        margin: 3.3rem 1.3rem;
+        border-radius: 1.15rem;
+    }
+
+    &__options {
+        display: flex;
+        justify-content: flex-start;
+        padding: 2rem 2rem;
+
+        button {
+            margin-right: 5rem;
+        }
+    }
+
+    &__text {
+        &-basic {
+            &--category {
+                font-weight: 500;
+                color: $color-black;
+                margin-right: 0.2rem;
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+
+// Media Queries
+//-------------------
+@media(max-width: 600px) {
+    .card-detail {
+        width: 34rem;
+
+        &__options {
+            display: block;
+
+            button {
+                margin-bottom: 2.3rem;
+            }
+        }
+
+        &__basic-data {
+            div {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
