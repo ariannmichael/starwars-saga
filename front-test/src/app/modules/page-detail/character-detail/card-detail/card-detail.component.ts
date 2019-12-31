@@ -167,6 +167,14 @@ export class CardDetailComponent implements OnInit, OnChanges {
     });
   }
 
+  get isHeightUnknown() {
+    return this.character.height === 'unknown';
+  }
+
+  get isMassUnknown() {
+    return this.character.mass === 'unknown';
+  }
+
   /**
    * Emit event to open the film modal
    * passing the film object to be shown
@@ -179,7 +187,7 @@ export class CardDetailComponent implements OnInit, OnChanges {
    * Emit event to open the planet modal
    * passing the planet object to be shown
    */
-  openPlanetModal(planet: Planet) {
+  openPlanetModal() {
     this.planetEvent.emit(this.planet);
   }
 

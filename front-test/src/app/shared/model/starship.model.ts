@@ -4,7 +4,7 @@
 export interface Starship {
     name?: string;
     model?: string;
-    startship_class?: string;
+    starship_class?: string;
     manufacturer?: string;
     cost_in_credits?: string;
     length?: string;
