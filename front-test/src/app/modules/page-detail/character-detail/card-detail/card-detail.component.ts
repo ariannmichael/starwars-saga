@@ -168,11 +168,15 @@ export class CardDetailComponent implements OnInit, OnChanges {
   }
 
   get isHeightUnknown() {
-    return this.character.height === 'unknown';
+    if (this.character) {
+      return this.character.height === 'unknown';
+    }
   }
 
   get isMassUnknown() {
-    return this.character.mass === 'unknown';
+    if (this.character) {
+      return this.character.mass === 'unknown';
+    }
   }
 
   /**
