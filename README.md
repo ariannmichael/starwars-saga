@@ -16,7 +16,7 @@ After run `npm start` to start the project.
 
 Then navigate to `http://localhost:4200/`, the app will be running.
 
-## Applicantion
+## Application
 
 The application can be seen on [front-test](https://ariannmichael.github.io/frontend-test/)
 
