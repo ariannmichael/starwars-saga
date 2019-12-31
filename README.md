@@ -16,6 +16,10 @@ After run `npm start` to start the project.
 
 Then navigate to `http://localhost:4200/`, the app will be running.
 
+## Applicantion
+
+The application can be seen on [front-test](https://ariannmichael.github.io/frontend-test/)
+
 ## List page:
 
 List all Star Wars saga characters.
