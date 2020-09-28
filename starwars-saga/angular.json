@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "front-test": {
+    "starwars-saga": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -64,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "front-test:build"
+            "browserTarget": "starwars-saga:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "front-test:build:production"
+              "browserTarget": "starwars-saga:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "front-test:build"
+            "browserTarget": "starwars-saga:build"
           }
         },
         "test": {
@@ -112,11 +112,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "front-test:serve"
+            "devServerTarget": "starwars-saga:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "front-test:serve:production"
+              "devServerTarget": "starwars-saga:serve:production"
             }
           }
         },
@@ -127,5 +127,5 @@
       }
     }
   },
-  "defaultProject": "front-test"
+  "defaultProject": "starwars-saga"
 }
