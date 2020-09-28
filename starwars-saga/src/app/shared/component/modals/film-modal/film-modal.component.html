@@ -1,0 +1,50 @@
+<div *ngIf="film">
+  <app-modal id="film-modal">
+    <ng-template #headerTemplate>
+      Films:
+    </ng-template>
+    <ng-template #contentTemplate>
+      <div >
+        <div class="card__text-basic card-detail__basic-data modal-data" style="padding: 0">
+
+          <!-- TITLE -->
+          <div class="ft-2">
+            <p class="text-category">Title: </p>
+            <p>{{film.title}}</p>
+          </div>
+
+          <!-- DIRECTOR -->
+          <div class="ft-2">
+            <p class="text-category">Director: </p>
+            <p>{{film.director}}</p>
+          </div>
+          
+          <!-- PRODUCER -->
+          <div class="ft-2">
+            <p class="text-category">Producer: </p>
+            <p>{{film.producer}}</p>
+          </div>
+          
+          <!-- RELEASE DATE -->
+          <div class="ft-2">
+            <p class="text-category">Release Date: </p>
+            <p>{{film.release_date}}</p>
+          </div>
+          
+          <!-- EPISODE ID -->
+          <div class="ft-2">
+            <p class="text-category">Episode Id: </p>
+            <p>{{film.episode_id}}</p>
+          </div>
+
+          <!-- OPENING CRAWL -->
+          <div class="ft-2">
+            <p class="text-category mb-1">Opening Crawl: </p>
+            <p>{{film.opening_crawl}}</p>
+          </div>
+
+        </div>
+      </div>
+    </ng-template>
+  </app-modal>
+</div>

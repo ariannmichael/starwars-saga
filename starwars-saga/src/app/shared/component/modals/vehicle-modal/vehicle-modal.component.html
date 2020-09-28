@@ -1,0 +1,80 @@
+<div *ngIf="vehicle">
+  <app-modal id="vehicle-modal">
+    <ng-template #headerTemplate>
+      Vehicle:
+    </ng-template>
+    <ng-template #contentTemplate>
+      <div >
+        <div class="card__text-basic card-detail__basic-data modal-data" style="padding: 0">
+
+          <!-- NAME -->
+          <div class="modal-data__category">
+            <p class="text-category">Name: </p>
+            <p>{{vehicle.name}}</p>
+          </div>
+
+          <!-- MODEL -->
+          <div class="modal-data__category">
+            <p class="text-category">Model: </p>
+            <p>{{vehicle.model}}</p>
+          </div>
+          
+          <!-- VEHICLE CLASS -->
+          <div class="modal-data__category">
+            <p class="text-category">Vehicle Class: </p>
+            <p>{{vehicle.vehicle_class}}</p>
+          </div>
+          
+          <!-- MANUFACTURER -->
+          <div class="modal-data__category">
+            <p class="text-category">Manufacturer: </p>
+            <p>{{vehicle.manufacturer}}</p>
+          </div>
+          
+          <!-- LENGTH -->
+          <div class="modal-data__category">
+            <p class="text-category">Length: </p>
+            <p>{{vehicle.length}}</p>
+          </div>
+
+          <!-- COST IN CREDITS -->
+          <div class="modal-data__category">
+            <p class="text-category">Cost in Credits: </p>
+            <p>{{vehicle.cost_in_credits}}</p>
+          </div>
+
+          <!-- CREW -->
+          <div class="modal-data__category">
+            <p class="text-category">Crew: </p>
+            <p>{{vehicle.crew}}</p>
+          </div>
+
+          <!-- PASSENGERS -->
+          <div class="modal-data__category">
+            <p class="text-category">Passengers: </p>
+            <p>{{vehicle.passengers}}</p>
+          </div>
+
+          <!-- MAX ATMOSPHERING SPEED -->
+          <div class="modal-data__category">
+            <p class="text-category">Max Atmosphering Speed: </p>
+            <p>{{vehicle.max_atmosphering_speed}}</p>
+          </div>
+
+          <!-- CARGO CAPACITY -->
+          <div class="modal-data__category">
+            <p class="text-category">Cargo Capacity: </p>
+            <p>{{vehicle.cargo_capacity}}</p>
+          </div>
+
+          <!-- CONSUMABLE -->
+          <div class="modal-data__category">
+            <p class="text-category">Consumables: </p>
+            <p>{{vehicle.consumables}}</p>
+          </div>
+
+        </div>
+      </div>
+    </ng-template>
+  </app-modal>
+</div>

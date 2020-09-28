@@ -1,0 +1,72 @@
+.align-center {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.align-right {
+    align-content: center;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.text-inline {
+    display: flex;
+    width: 23.4rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.mr-2 {
+    margin-right: 2rem
+}
+
+.mr-3 {
+    margin-right: 3rem
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.pg-padding {
+    padding: 2.7rem 4rem;
+}
+
+.pd-top {
+    padding: 2.7rem 0rem;
+}
+
+.ft-1 {
+    font-size: 1.3rem;
+}
+
+.ft-2 {
+    font-size: 2rem;
+}
+
+.ft-3 {
+    font-size: 3.5rem;
+}
+
+.ft-4 {
+    font-size: 4.5rem;
+}
+
+.loader {
+    position: absolute;
+    left: 46%;
+    top: 70%;
+    border: 16px solid $color-white;
+    border-top: 16px solid $color-medium-blue;
+    border-radius: 50%;
+    width: 12rem;
+    height: 12rem;
+    animation: spin 2s linear infinite;
+}

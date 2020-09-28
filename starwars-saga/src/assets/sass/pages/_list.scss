@@ -1,0 +1,40 @@
+// Page list styles
+// ----------------------------
+
+.character-list {
+    &__card {
+        display: grid;
+        grid-template-columns: 27rem 27rem 27rem 27rem;
+        grid-gap: 2rem 5rem;
+        height: 69rem;
+    }
+
+    &__filters {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 4rem 10.7rem;
+    }
+}
+
+
+// Media Queries
+//-------------------
+@media(max-width: 600px) {
+    .character-list {
+        &__card {
+            display: grid;
+            grid-template-columns: 27rem;
+            grid-gap: 2rem 5rem;
+            height: auto;
+        }
+
+        &__filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 4rem 2rem;
+
+        }
+    }   
+}

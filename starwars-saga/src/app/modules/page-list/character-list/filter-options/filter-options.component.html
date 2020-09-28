@@ -1,0 +1,103 @@
+<div>
+  <!-- MODAL -->
+  <app-modal id="filter-modal">
+      <ng-template #headerTemplate>
+        Filters
+      </ng-template>
+      <ng-template #contentTemplate>
+
+        <div class="filter-options">
+          <form [formGroup]="filterForm">
+
+            <!-- INPUT TEXTS -->
+            <div class="filter-options__content">
+              <!-- HEIGHT -->
+              <div class="filter-category mr-2">
+                <p class="text-category ">Height:</p>
+                <div class="filter-options__items">
+                  <input type="number" class="filter-options__items--input" 
+                    formControlName="height"> cm
+                </div>
+              </div>
+  
+              <!-- MASS -->
+              <div class="filter-category">
+                  <p class="text-category">Mass:</p>
+                  <div class="filter-options__items">
+                    <input type="number" class="filter-options__items--input"
+                      formControlName="mass"> kg
+                  </div>
+              </div>
+            </div>
+
+            <!-- COLOR OPTIONS -->
+            <div class="filter-options__content">
+              <!-- HAIR COLORS -->
+              <div class="filter-category mr-2">
+                <p class="text-category">Hair Colors:</p>
+                <div class="filter-options__items">
+                  <select class="filter-options__items--input-select" formControlName="hairColors">
+                    <option [ngValue]="null"></option>
+                    <option *ngFor="let op of hairColors" [ngValue]="op">{{op}}</option>
+                  </select>
+                </div>
+              </div>
+              
+              <!-- SKIN COLORS -->
+              <div class="filter-category mr-2">
+                <p class="text-category">Skin Colors:</p>
+                <div class="filter-options__items">
+                  <select class="filter-options__items--input-select" formControlName="skinColors">
+                    <option [ngValue]="null"></option>
+                    <option *ngFor="let op of skinColors" [ngValue]="op">{{op}}</option>
+                  </select>
+                </div>
+              </div>
+  
+              <!-- EYE COLORS -->
+              <div class="filter-category">
+                <p class="text-category">Eye Colors:</p>
+                <div class="filter-options__items">
+                  <select class="filter-options__items--input-select" formControlName="eyeColors">
+                    <option [ngValue]="null"></option>
+                    <option *ngFor="let op of eyeColors" [ngValue]="op">{{op}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- ONE OPTION SELECT -->
+            <div class="filter-options__content mb-1">
+              <!-- BIRTH YEAR -->
+              <div class="filter-category mr-3">
+                <p class="text-category">Birth Year:</p>
+                <div class="filter-options__items">
+                  <select class="filter-options__items--input-select" formControlName="birthYear">
+                    <option [ngValue]="null"></option>
+                    <option *ngFor="let op of yearsOptions" [ngValue]="op">{{op}}</option>
+                  </select>
+                </div>
+              </div>
+  
+              <!-- GENDER -->
+              <div class="filter-category">
+                <p class="text-category">Gender:</p>
+                <div class="filter-options__items">
+                  <select class="filter-options__items--input-select" formControlName="gender">
+                    <option [ngValue]="null"></option>
+                    <option *ngFor="let op of genderOptions" [ngValue]="op">{{op}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- BUTTONS  -->
+            <button type="button" (click)="submit()" class="btn btn-filters mr-2">Submit</button>
+
+            <button type="button" (click)="reset()" class="btn btn-filters--reset">Reset</button>
+          </form>
+        </div>
+      </ng-template>
+    </app-modal>
+</div>

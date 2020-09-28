@@ -1,0 +1,112 @@
+<section class="background-img">
+  <div class="card-detail">
+    <!-- Character Name -->
+    <div class="card__text--name-detail ft-4">
+      {{ character?.name }}
+    </div>
+  
+    
+    <div class="card-detail__block">
+
+      <!-- BASIC DATA -->
+      <div class="card-detail__category">
+        <p class="card-detail__category-title">Basic:</p>
+        <hr>
+        <div class="card__text-basic card-detail__basic-data">
+          <!-- Character Height -->
+          <div class="flex ft-2">
+            <p class="card-detail__text-basic--category">Height:</p>
+            <p> {{ character?.height }}</p>
+            <p *ngIf="!isHeightUnknown">cm</p>
+          </div>
+          <!-- Character Mass -->
+          <div class="flex ft-2">
+              <p class="card-detail__text-basic--category">Mass:</p>
+              <p> {{ character?.mass }}</p>
+              <p *ngIf="!isMassUnknown">kg</p>
+          </div>
+          <!-- Character Hair Color -->
+          <div class="flex ft-2">
+              <p class="card-detail__text-basic--category">Hair Color:</p>
+              <p> {{ character?.hair_color }}</p>
+          </div>
+          <!-- Character Skin Color -->
+          <div class="flex ft-2">
+              <p class="card-detail__text-basic--category">Skin Color:</p>
+              <p> {{ character?.skin_color }}</p>
+          </div>
+          <!-- Character Eye Color -->
+          <div class="flex ft-2">
+              <p class="card-detail__text-basic--category">Eye Color:</p>
+              <p> {{ character?.eye_color }}</p>
+          </div>
+          <!-- Character Birth Year -->
+          <div class="flex ft-2">
+              <p class="card-detail__text-basic--category">Birth Year:</p>
+              <p> {{ character?.birth_year }}</p>
+          </div>
+          <!-- Character Gender -->
+          <div class="flex ft-2">
+              <p class="card-detail__text-basic--category">Gender:</p>
+              <p> {{ character?.gender }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILMS DATA -->
+      <div class="card-detail__category">
+        <p class="card-detail__category-title">Films:</p>
+        <hr>
+        <div class="card-detail__options">
+          <ng-container *ngFor="let film of films">
+            <!-- BUTTON TO SHOW THE FILM MODAL -->
+            <button class="btn btn-card--detail" (click)="openFilmModal(film)">{{ film?.title }}</button>
+          </ng-container>
+        </div>
+      </div>
+
+      <!-- PLANET DATA -->
+      <div class="card-detail__category">
+        <p class="card-detail__category-title">Planets:</p>
+        <hr>
+        <div class="card-detail__options">
+          <button class="btn btn-card--detail" (click)="openPlanetModal()">{{ planet?.name }}</button>
+        </div>
+      </div>
+
+      <!-- SPECIE DATA -->
+      <div class="card-detail__category">
+        <p class="card-detail__category-title">Species:</p>
+        <hr>
+        <div class="card-detail__options">
+          <ng-container *ngFor="let specie of species">
+            <button class="btn btn-card--detail" (click)="openSpecieModal(specie)">{{ specie?.name }}</button>
+          </ng-container>
+        </div>
+      </div>
+
+      <!-- STARSHIP DATA -->
+      <div class="card-detail__category">
+        <p class="card-detail__category-title">Starship:</p>
+        <hr>
+        <div class="card-detail__options">
+          <ng-container *ngFor="let starship of starships">
+            <button class="btn btn-card--detail" (click)="openStarshipModal(starship)">{{ starship?.name }}</button>
+          </ng-container>
+        </div>
+      </div>
+
+      <!-- VEHICLES DATA -->
+      <div class="card-detail__category">
+        <p class="card-detail__category-title">Vehicles:</p>
+        <hr>
+        <div class="card-detail__options">
+          <ng-container *ngFor="let vehicle of vehicles">
+            <button class="btn btn-card--detail" (click)="openVehicleModal(vehicle)">{{ vehicle?.name }}</button>
+          </ng-container>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>

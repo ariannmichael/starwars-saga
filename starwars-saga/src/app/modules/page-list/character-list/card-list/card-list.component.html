@@ -1,0 +1,51 @@
+<div *ngIf="character" class="card-list">
+  <a [routerLink]="[ '/detail', characterId]">
+
+    <!-- Character Name -->
+    <div class="card__text--name">
+      {{ character.name }}
+    </div>
+
+    <div class="card-list__block">
+        <div class="card__text-basic">
+            <!-- Character Height -->
+            <div class="text-inline">
+              <p class="card__text-basic--category">Height:</p>
+              <p> {{ character.height }}</p>
+              <p *ngIf="!isHeightUnknown">cm</p>
+            </div>
+            <!-- Character Mass -->
+            <div class="text-inline">
+                <p class="card__text-basic--category">Mass:</p>
+                <p> {{ character.mass }}</p>
+                <p *ngIf="!isMassUnknown">kg</p>
+            </div>
+            <!-- Character Hair Color -->
+            <div class="text-inline">
+                <p class="card__text-basic--category">Hair Color:</p>
+                <p> {{ character.hair_color }}</p>
+            </div>
+            <!-- Character Skin Color -->
+            <div class="text-inline">
+                <p class="card__text-basic--category">Skin Color:</p>
+                <p> {{ character.skin_color }}</p>
+            </div>
+            <!-- Character Eye Color -->
+            <div class="text-inline">
+                <p class="card__text-basic--category">Eye Color:</p>
+                <p> {{ character.eye_color }}</p>
+            </div>
+            <!-- Character Birth Year -->
+            <div class="text-inline">
+                <p class="card__text-basic--category">Birth Year:</p>
+                <p> {{ character.birth_year }}</p>
+            </div>
+            <!-- Character Gender -->
+            <div class="text-inline">
+                <p class="card__text-basic--category">Gender:</p>
+                <p> {{ character.gender }}</p>
+            </div>
+          </div>
+    </div>
+  </a>
+</div>

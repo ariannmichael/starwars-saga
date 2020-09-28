@@ -1,0 +1,80 @@
+<div *ngIf="starship">
+  <app-modal id="starship-modal">
+    <ng-template #headerTemplate>
+      Starship:
+    </ng-template>
+    <ng-template #contentTemplate>
+      <div >
+        <div class="card__text-basic card-detail__basic-data modal-data" style="padding: 0">
+
+          <!-- NAME -->
+          <div class="modal-data__category">
+            <p class="text-category">Name: </p>
+            <p>{{starship.name}}</p>
+          </div>
+
+          <!-- MODEL -->
+          <div class="modal-data__category">
+            <p class="text-category">Model: </p>
+            <p>{{starship.model}}</p>
+          </div>
+          
+          <!-- STARSHIP CLASS -->
+          <div class="modal-data__category">
+            <p class="text-category">Starship Class: </p>
+            <p>{{starship.starship_class}}</p>
+          </div>
+          
+          <!-- MANUFACTURER -->
+          <div class="modal-data__category">
+            <p class="text-category">Manufacturer: </p>
+            <p>{{starship.manufacturer}}</p>
+          </div>
+          
+          <!-- LENGTH -->
+          <div class="modal-data__category">
+            <p class="text-category">Length: </p>
+            <p>{{starship.length}}</p>
+          </div>
+
+          <!-- COST IN CREDITS -->
+          <div class="modal-data__category">
+            <p class="text-category">Cost in Credits: </p>
+            <p>{{starship.cost_in_credits}}</p>
+          </div>
+
+          <!-- CREW -->
+          <div class="modal-data__category">
+            <p class="text-category">Crew: </p>
+            <p>{{starship.crew}}</p>
+          </div>
+
+          <!-- PASSENGERS -->
+          <div class="modal-data__category">
+            <p class="text-category">Passengers: </p>
+            <p>{{starship.passengers}}</p>
+          </div>
+
+          <!-- HYPERDRIVE RATING -->
+          <div class="modal-data__category">
+            <p class="text-category">Hyperdrive Rating: </p>
+            <p>{{starship.hyperdrive_rating}}</p>
+          </div>
+
+          <!-- MGMLT -->
+          <div class="modal-data__category">
+            <p class="text-category">MGLT: </p>
+            <p>{{starship.MGLT}}</p>
+          </div>
+
+          <!-- CONSUMABLE -->
+          <div class="modal-data__category">
+            <p class="text-category">Consumables: </p>
+            <p>{{starship.consumables}}</p>
+          </div>
+
+        </div>
+      </div>
+    </ng-template>
+  </app-modal>
+</div>
