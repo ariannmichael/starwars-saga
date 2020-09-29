@@ -1,0 +1,29 @@
+// Styles files
+// --------------------------------------------------
+
+// Abstract files 
+// -------------------
+@import "abstracts/variables";
+
+// Base files
+// -------------------
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+// Components files
+// -------------------
+@import "components/buttons";
+@import "components/cards";
+@import "components/filters";
+
+// Layout files
+// -------------------
+@import "layout/header";
+@import "layout/modal";
+
+// Pages files
+// -------------------
+@import "pages/list";
+@import "pages/detail";
